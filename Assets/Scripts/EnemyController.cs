@@ -10,9 +10,12 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
+        //StartCoroutine(());
         while (transform.position.x > 6.5 && movementProgress == 0)
         {
             transform.position -= new Vector3 ((enemySpeed / 10), 0, 0);
-        }  
+        }
+
+        movementProgress++;
     }
 }
