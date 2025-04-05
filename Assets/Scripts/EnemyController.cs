@@ -27,4 +27,14 @@ public class EnemyController : MonoBehaviour
         }
         movementProgress++;
     }
+    
+    public void TakeDamage(int amount)
+    {
+        enemyHealth -= amount;
+        if (enemyHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
 }
