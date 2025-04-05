@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,10 +9,27 @@ public class EnemyController : MonoBehaviour
     public float enemySpeed;
     private int movementProgress = 0;
 
-    private void Start()
+    private List<GameObject> movementPoints;
+    private List<GameObject> movementPointsSorted;
+
+    /*void Awake()
     {
+        movementPoints = new List<GameObject>();
+        movementPoints.Add(GameObject.FindGameObjectsWithTag("MovementPoint"));
+        
+        while (movementPoints. > 0)
+        {
+            foreach (GameObject MovementPoint in movementPoints)
+            {
+                if ((movementPointsSorted.Length == MovementPoint.GetComponent<MovementPoints>().movementIndex))
+                {
+                    movementPointsSorted 
+                }
+            }
+        }
+
         StartCoroutine(EnemyMovement());
-    }
+    }*/
 
     IEnumerator EnemyMovement()
     {
@@ -19,7 +37,7 @@ public class EnemyController : MonoBehaviour
         {
             while (transform.position.x > 6.5 && movementProgress == 0 && enemyHealth > 0)
             {
-                transform.position -= new Vector3((enemySpeed / 100), 0, 0);
+                //transform.position -= findMovementPoints[]
                 yield return new WaitForSecondsRealtime(0.01f);
             }
 
