@@ -12,6 +12,9 @@ public class EnemyController : MonoBehaviour
     private List<GameObject> movementPoints;
     private List<GameObject> movementPointsSorted;
 
+    AudioSource audioSource;
+    [SerializeField] private AudioClip damaged;
+
     void Awake()
     {
         /*movementPoints = new List<GameObject>();
@@ -27,6 +30,7 @@ public class EnemyController : MonoBehaviour
                 }
             }
         }*/
+        audioSource = GetComponent<AudioSource>();
 
         StartCoroutine(EnemyMovement());
     }
@@ -156,6 +160,7 @@ public class EnemyController : MonoBehaviour
     public void TakeDamage(int amount)
     {
         enemyHealth -= amount;
+        audioSource.PlayOneShot(damaged, 1F);
         if (enemyHealth <= 0)
         {
             Destroy(gameObject);
