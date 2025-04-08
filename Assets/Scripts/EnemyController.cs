@@ -15,17 +15,124 @@ public class EnemyController : MonoBehaviour
 
     IEnumerator EnemyMovement()
     {
-        while (transform.position.x > 6.5 && movementProgress == 0)
+        while (enemyHealth > 0 && movementProgress < 10)
         {
-            transform.position -= new Vector3((enemySpeed / 100), 0, 0);
-            yield return new WaitForSecondsRealtime(0.01f);
-        }
+            while (transform.position.x > 6.5 && movementProgress == 0 && enemyHealth > 0)
+            {
+                transform.position -= new Vector3((enemySpeed / 100), 0, 0);
+                yield return new WaitForSecondsRealtime(0.01f);
+            }
 
-        if (transform.position.x != 6.5)
-        {
-            transform.position = new Vector3 (6.5f, transform.position.y);
+            if (transform.position.x != 6.5 && movementProgress == 0)
+            {
+                transform.position = new Vector3(6.5f, transform.position.y);
+            }
+            movementProgress++;
+
+
+            while (transform.position.y < 1.5 && movementProgress == 1 && enemyHealth > 0)
+            {
+                transform.position += new Vector3(0, (enemySpeed / 100), 0);
+                yield return new WaitForSecondsRealtime(0.01f);
+            }
+
+            if (transform.position.y != 1.5 && movementProgress == 1)
+            {
+                transform.position = new Vector3(transform.position.x, 1.5f);
+            }
+            movementProgress++;
+
+
+            while (transform.position.x > 2.5 && movementProgress == 2 && enemyHealth > 0)
+            {
+                transform.position -= new Vector3((enemySpeed / 100), 0, 0);
+                yield return new WaitForSecondsRealtime(0.01f);
+            }
+
+            if (transform.position.x != 2.5 && movementProgress == 2)
+            {
+                transform.position = new Vector3(2.5f, transform.position.y);
+            }
+            movementProgress++;
+
+
+            while (transform.position.y > -1.5 && movementProgress == 3 && enemyHealth > 0)
+            {
+                transform.position -= new Vector3(0, (enemySpeed / 100), 0);
+                yield return new WaitForSecondsRealtime(0.01f);
+            }
+
+            if (transform.position.y != -1.5 && movementProgress == 3)
+            {
+                transform.position = new Vector3(transform.position.x, -1.5f);
+            }
+            movementProgress++;
+
+
+            while (transform.position.x > -2.5 && movementProgress == 4 && enemyHealth > 0)
+            {
+                transform.position -= new Vector3((enemySpeed / 100), 0, 0);
+                yield return new WaitForSecondsRealtime(0.01f);
+            }
+
+            if (transform.position.x != -2.5 && movementProgress == 4)
+            {
+                transform.position = new Vector3(-2.5f, transform.position.y);
+            }
+            movementProgress++;
+
+
+            while (transform.position.y < 1.5 && movementProgress == 5 && enemyHealth > 0)
+            {
+                transform.position += new Vector3(0, (enemySpeed / 100), 0);
+                yield return new WaitForSecondsRealtime(0.01f);
+            }
+
+            if (transform.position.y != 1.5 && movementProgress == 5)
+            {
+                transform.position = new Vector3(transform.position.x, 1.5f);
+            }
+            movementProgress++;
+
+
+            while (transform.position.x > -6.5 && movementProgress == 6 && enemyHealth > 0)
+            {
+                transform.position -= new Vector3((enemySpeed / 100), 0, 0);
+                yield return new WaitForSecondsRealtime(0.01f);
+            }
+
+            if (transform.position.x != -6.5 && movementProgress == 6)
+            {
+                transform.position = new Vector3(-6.5f, transform.position.y);
+            }
+            movementProgress++;
+
+
+            while (transform.position.y > -1.5 && movementProgress == 7 && enemyHealth > 0)
+            {
+                transform.position -= new Vector3(0, (enemySpeed / 100), 0);
+                yield return new WaitForSecondsRealtime(0.01f);
+            }
+
+            if (transform.position.y != -1.5 && movementProgress == 7)
+            {
+                transform.position = new Vector3(transform.position.x, -1.5f);
+            }
+            movementProgress++;
+
+
+            while (transform.position.x > -9.5 && movementProgress == 8 && enemyHealth > 0)
+            {
+                transform.position -= new Vector3((enemySpeed / 100), 0, 0);
+                yield return new WaitForSecondsRealtime(0.01f);
+            }
+
+            if (transform.position.x != -9.5 && movementProgress == 8)
+            {
+                transform.position = new Vector3(-9.5f, transform.position.y);
+            }
+            movementProgress++;
         }
-        movementProgress++;
     }
     
     public void TakeDamage(int amount)

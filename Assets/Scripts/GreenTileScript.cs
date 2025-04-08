@@ -7,8 +7,14 @@ public class GreenTileScript : MonoBehaviour
     private GameObject[] greenTiles;
     public bool selected;
 
-    [SerializeField] private int xCoordinate;
-    [SerializeField] private int yCoordinate;
+    [SerializeField] private float xCoordinate;
+    [SerializeField] private float yCoordinate;
+
+    private void Start()
+    {
+        xCoordinate = transform.localPosition.x;
+        yCoordinate = transform.localPosition.y;
+    }
 
     private void OnMouseDown()
     {
