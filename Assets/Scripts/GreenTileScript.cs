@@ -9,6 +9,7 @@ public class GreenTileScript : MonoBehaviour
 
     [SerializeField] private float xCoordinate;
     [SerializeField] private float yCoordinate;
+    private PlayerScript playerScript;
 
     private void Start()
     {
@@ -16,7 +17,7 @@ public class GreenTileScript : MonoBehaviour
         yCoordinate = transform.localPosition.y;
     }
 
-    private void OnMouseDown()
+    private void OnMouseUp()
     {
         greenTiles = GameObject.FindGameObjectsWithTag("GreenTile");
 
@@ -26,6 +27,6 @@ public class GreenTileScript : MonoBehaviour
         }
 
         this.selected = true;
-        Debug.Log(this.xCoordinate + " " + this.yCoordinate);
+        playerScript.selectedTileTransform = this.transform;
     }
 }

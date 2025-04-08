@@ -37,7 +37,7 @@ public class EnemyController : MonoBehaviour
         {
             while (transform.position.x > 6.5 && movementProgress == 0 && enemyHealth > 0)
             {
-                //transform.position -= findMovementPoints[]
+                transform.position -= new Vector3((enemySpeed / 100), 0, 0);
                 yield return new WaitForSecondsRealtime(0.01f);
             }
 
