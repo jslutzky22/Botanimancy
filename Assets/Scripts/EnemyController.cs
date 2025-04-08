@@ -9,27 +9,31 @@ public class EnemyController : MonoBehaviour
     public float enemySpeed;
     private int movementProgress = 0;
 
-    private List<GameObject> movementPoints;
-    private List<GameObject> movementPointsSorted;
+    private GameObject movementPoint1;
+    private GameObject movementPoint2;
+    private GameObject movementPoint3;
+    private GameObject movementPoint4;
+    private GameObject movementPoint5;
+    private GameObject movementPoint6;
+    private GameObject movementPoint7;
+    private GameObject movementPoint8;
+    private GameObject movementPoint9;
 
     AudioSource audioSource;
     [SerializeField] private AudioClip damaged;
 
     void Awake()
     {
-        /*movementPoints = new List<GameObject>();
-        movementPoints.Add(GameObject.FindGameObjectsWithTag("MovementPoint"));
-        
-        while (movementPoints. > 0)
-        {
-            foreach (GameObject MovementPoint in movementPoints)
-            {
-                if ((movementPointsSorted.Length == MovementPoint.GetComponent<MovementPoints>().movementIndex))
-                {
-                    movementPointsSorted 
-                }
-            }
-        }*/
+        movementPoint1 = GameObject.FindGameObjectWithTag("movementPoint1");
+        movementPoint2 = GameObject.FindGameObjectWithTag("movementPoint2");
+        movementPoint3 = GameObject.FindGameObjectWithTag("movementPoint3");
+        movementPoint4 = GameObject.FindGameObjectWithTag("movementPoint4");
+        movementPoint5 = GameObject.FindGameObjectWithTag("movementPoint5");
+        movementPoint6 = GameObject.FindGameObjectWithTag("movementPoint6");
+        movementPoint7 = GameObject.FindGameObjectWithTag("movementPoint7");
+        movementPoint8 = GameObject.FindGameObjectWithTag("movementPoint8");
+        movementPoint9 = GameObject.FindGameObjectWithTag("movementPoint9");
+
         audioSource = GetComponent<AudioSource>();
 
         StartCoroutine(EnemyMovement());
@@ -39,20 +43,15 @@ public class EnemyController : MonoBehaviour
     {
         while (enemyHealth > 0 && movementProgress < 10)
         {
-            while (transform.position.x > 6.5 && movementProgress == 0 && enemyHealth > 0)
+            while (transform.position != movementPoint1.transform.position && movementProgress == 0 && enemyHealth > 0)
             {
                 transform.position -= new Vector3((enemySpeed / 100), 0, 0);
                 yield return new WaitForSecondsRealtime(0.01f);
             }
-
-            if (transform.position.x != 6.5 && movementProgress == 0)
-            {
-                transform.position = new Vector3(6.5f, transform.position.y);
-            }
             movementProgress++;
 
 
-            while (transform.position.y < 1.5 && movementProgress == 1 && enemyHealth > 0)
+            while (transform.position != movementPoint1.transform.position && movementProgress == 1 && enemyHealth > 0)
             {
                 transform.position += new Vector3(0, (enemySpeed / 100), 0);
                 yield return new WaitForSecondsRealtime(0.01f);

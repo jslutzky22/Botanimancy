@@ -6,8 +6,16 @@ TagManager:
   tags:
   - GreenTile
   - Enemy
-  - MovementPoint
   - selectedTile
+  - movementPoint1
+  - movementPoint2
+  - movementPoint3
+  - movementPoint4
+  - movementPoint5
+  - movementPoint6
+  - movementPoint7
+  - movementPoint8
+  - movementPoint9
   layers:
   - Default
   - TransparentFX
