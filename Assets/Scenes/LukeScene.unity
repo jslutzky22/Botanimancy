@@ -2179,6 +2179,7 @@ GameObject:
   - component: {fileID: 333132572}
   - component: {fileID: 333132571}
   - component: {fileID: 333132570}
+  - component: {fileID: 333132573}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2260,6 +2261,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &333132573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 333132569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 975c066d3fb39104c9cba205040d8b57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerSelected: 0
+  selectedTileTransform: {fileID: 0}
+  TowerOne: {fileID: 7741374335154400959, guid: 7de9cd42ecf6ffb45b7d4166141e2298, type: 3}
+  TowerTwo: {fileID: 7741374335154400959, guid: 7de9cd42ecf6ffb45b7d4166141e2298, type: 3}
+  TowerThree: {fileID: 7741374335154400959, guid: 7de9cd42ecf6ffb45b7d4166141e2298, type: 3}
+  TowerFour: {fileID: 7741374335154400959, guid: 7de9cd42ecf6ffb45b7d4166141e2298, type: 3}
 --- !u!1001 &345695418
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5491,6 +5510,7 @@ GameObject:
   - component: {fileID: 1030795282}
   - component: {fileID: 1030795281}
   - component: {fileID: 1030795283}
+  - component: {fileID: 1030795284}
   m_Layer: 0
   m_Name: Square3
   m_TagString: Untagged
@@ -5578,6 +5598,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TowerType: 3
+--- !u!61 &1030795284
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030795280}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!4 &1040420170 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6432784744765941620, guid: cd98013afa04ed54fba0101ee7331518, type: 3}
@@ -5858,6 +5923,7 @@ GameObject:
   - component: {fileID: 1111383065}
   - component: {fileID: 1111383064}
   - component: {fileID: 1111383066}
+  - component: {fileID: 1111383067}
   m_Layer: 0
   m_Name: Square4
   m_TagString: Untagged
@@ -5945,6 +6011,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TowerType: 4
+--- !u!61 &1111383067
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111383063}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1001 &1114034314
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8678,6 +8789,7 @@ GameObject:
   - component: {fileID: 1679095101}
   - component: {fileID: 1679095100}
   - component: {fileID: 1679095102}
+  - component: {fileID: 1679095103}
   m_Layer: 0
   m_Name: Square2
   m_TagString: Untagged
@@ -8765,6 +8877,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TowerType: 2
+--- !u!61 &1679095103
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679095099}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1001 &1696043613
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10888,6 +11045,7 @@ GameObject:
   - component: {fileID: 2070165815}
   - component: {fileID: 2070165814}
   - component: {fileID: 2070165816}
+  - component: {fileID: 2070165817}
   m_Layer: 0
   m_Name: Square1
   m_TagString: Untagged
@@ -10976,6 +11134,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TowerType: 1
+--- !u!61 &2070165817
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070165813}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1001 &2076404923
 PrefabInstance:
   m_ObjectHideFlags: 0

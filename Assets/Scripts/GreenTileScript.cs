@@ -9,12 +9,16 @@ public class GreenTileScript : MonoBehaviour
 
     [SerializeField] private float xCoordinate;
     [SerializeField] private float yCoordinate;
+    private GameObject sceneCamera;
     private PlayerScript playerScript;
+    public bool towerOnTile = false;
 
     private void Start()
     {
         xCoordinate = transform.localPosition.x;
         yCoordinate = transform.localPosition.y;
+        sceneCamera = FindObjectOfType<Camera>().gameObject;
+        playerScript = sceneCamera.GetComponent<PlayerScript>();
     }
 
     private void OnMouseUp()
@@ -26,7 +30,10 @@ public class GreenTileScript : MonoBehaviour
             GreenTiles.GetComponent<GreenTileScript>().selected = false;
         }
 
-        this.selected = true;
-        playerScript.selectedTileTransform = this.transform;
+        if (!towerOnTile)
+        {
+            this.gameObject.tag = "selectedTile";
+            playerScript.selectedTileTransform = this.transform;
+        }
     }
 }

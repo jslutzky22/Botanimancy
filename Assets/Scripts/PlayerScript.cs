@@ -9,7 +9,11 @@ public class PlayerScript : MonoBehaviour
     public int towerSelected;
     public Transform selectedTileTransform;
     private GameObject selectedTile;
-    private GameObject[] greenTiles;
+
+    [SerializeField] private GameObject TowerOne;
+    [SerializeField] private GameObject TowerTwo;
+    [SerializeField] private GameObject TowerThree;
+    [SerializeField] private GameObject TowerFour;
 
     // Start is called before the first frame update
     void Start()
@@ -22,31 +26,27 @@ public class PlayerScript : MonoBehaviour
     {
         if (towerSelected != 0 && selectedTileTransform != null)
         {
-            greenTiles = GameObject.FindGameObjectsWithTag("GreenTile");
-
-            foreach (GameObject GreenTiles in greenTiles)
-            {
-                if (GreenTiles.GetComponent<GreenTileScript>().selected == true)
-                {
-                    selectedTile = GreenTiles;
-                }
-            }
+            selectedTile = GameObject.FindGameObjectWithTag("selectedTile");
 
             if (towerSelected == 1)
             {
-                
+                selectedTile.GetComponent<GreenTileScript>().towerOnTile = true;
+                Instantiate(TowerOne, selectedTileTransform);
             }
             else if (towerSelected == 2)
             {
-
+                selectedTile.GetComponent<GreenTileScript>().towerOnTile = true;
+                Instantiate(TowerTwo, selectedTileTransform);
             }
             else if (towerSelected == 3)
             {
-
+                selectedTile.GetComponent<GreenTileScript>().towerOnTile = true;
+                Instantiate(TowerThree, selectedTileTransform);
             }
             else if (towerSelected == 4)
             {
-
+                selectedTile.GetComponent<GreenTileScript>().towerOnTile = true;
+                Instantiate(TowerFour, selectedTileTransform);
             }
             towerSelected = 0;
             selectedTile.GetComponent<GreenTileScript>().selected = false;

@@ -12,9 +12,9 @@ public class EnemyController : MonoBehaviour
     private List<GameObject> movementPoints;
     private List<GameObject> movementPointsSorted;
 
-    /*void Awake()
+    void Awake()
     {
-        movementPoints = new List<GameObject>();
+        /*movementPoints = new List<GameObject>();
         movementPoints.Add(GameObject.FindGameObjectsWithTag("MovementPoint"));
         
         while (movementPoints. > 0)
@@ -26,10 +26,10 @@ public class EnemyController : MonoBehaviour
                     movementPointsSorted 
                 }
             }
-        }
+        }*/
 
         StartCoroutine(EnemyMovement());
-    }*/
+    }
 
     IEnumerator EnemyMovement()
     {
