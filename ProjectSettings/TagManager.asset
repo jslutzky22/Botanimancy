@@ -6,6 +6,8 @@ TagManager:
   tags:
   - GreenTile
   - Enemy
+  - MovementPoint
+  - selectedTile
   layers:
   - Default
   - TransparentFX

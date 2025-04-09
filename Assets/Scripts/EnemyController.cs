@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,8 +9,29 @@ public class EnemyController : MonoBehaviour
     public float enemySpeed;
     private int movementProgress = 0;
 
-    private void Start()
+    private List<GameObject> movementPoints;
+    private List<GameObject> movementPointsSorted;
+
+    AudioSource audioSource;
+    [SerializeField] private AudioClip damaged;
+
+    void Awake()
     {
+        /*movementPoints = new List<GameObject>();
+        movementPoints.Add(GameObject.FindGameObjectsWithTag("MovementPoint"));
+        
+        while (movementPoints. > 0)
+        {
+            foreach (GameObject MovementPoint in movementPoints)
+            {
+                if ((movementPointsSorted.Length == MovementPoint.GetComponent<MovementPoints>().movementIndex))
+                {
+                    movementPointsSorted 
+                }
+            }
+        }*/
+        audioSource = GetComponent<AudioSource>();
+
         StartCoroutine(EnemyMovement());
     }
 
@@ -138,6 +160,7 @@ public class EnemyController : MonoBehaviour
     public void TakeDamage(int amount)
     {
         enemyHealth -= amount;
+        audioSource.PlayOneShot(damaged, 1F);
         if (enemyHealth <= 0)
         {
             Destroy(gameObject);
