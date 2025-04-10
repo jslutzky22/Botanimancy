@@ -153,7 +153,18 @@ public class EnemyController : MonoBehaviour
             {
                 transform.position = new Vector3(-9.5f, transform.position.y);
             }
+            // After final movement
             movementProgress++;
+
+            // Final check: if movement is done, damage the player and destroy the enemy
+            if (movementProgress >= 9 && enemyHealth > 0)
+            {
+                // Subtract 1 HP from player
+                PlayerHealth.Instance.PlayerTakeDamage(1); // or whatever method you use
+
+                // Destroy the enemy
+                Destroy(gameObject);
+            }
         }
     }
     
