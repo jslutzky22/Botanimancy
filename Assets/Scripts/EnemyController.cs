@@ -532,12 +532,6 @@ public class EnemyController : MonoBehaviour
                 movementProgress++;
             }
 
-            if (movementProgress == 9)
-            {
-                //damage base
-                Destroy(this.gameObject);
-            }
-
             // Final check: if movement is done, damage the player and destroy the enemy
             if (movementProgress >= 9 && enemyHealth > 0)
             {
@@ -545,7 +539,7 @@ public class EnemyController : MonoBehaviour
                 PlayerHealth.Instance.PlayerTakeDamage(1); // or whatever method you use
 
                 // Destroy the enemy
-                Destroy(gameObject);
+                Destroy(this.gameObject);
             }
         }
     }
