@@ -1,39 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class GreenTileScript : MonoBehaviour
+public class TowerPlacement : MonoBehaviour
 {
-    private GameObject[] greenTiles;
-    public bool selected;
-
-    [SerializeField] private float xCoordinate;
-    [SerializeField] private float yCoordinate;
+    [SerializeField] private int TowerType;
     private GameObject sceneCamera;
     private PlayerScript playerScript;
-    public bool towerOnTile = false;
+    private GameObject[] greenTiles;
 
     private void Start()
     {
-        xCoordinate = transform.localPosition.x;
-        yCoordinate = transform.localPosition.y;
         sceneCamera = FindObjectOfType<Camera>().gameObject;
         playerScript = sceneCamera.GetComponent<PlayerScript>();
     }
 
-    private void OnMouseUp()
+    private void Update()
     {
+        
+    }
+
+    private void OnMouseDown()
+    {
+        playerScript.towerSelected = TowerType;
+
+        playerScript.selectedTileTransform = null;
+
         greenTiles = GameObject.FindGameObjectsWithTag("GreenTile");
 
         foreach (GameObject GreenTiles in greenTiles)
         {
             GreenTiles.GetComponent<GreenTileScript>().selected = false;
         }
+    }
 
-        if (!towerOnTile)
-        {
-            this.gameObject.tag = "selectedTile";
-            playerScript.selectedTileTransform = this.transform;
-        }
+    private void OnMouseUpAsButton() 
+    {
+        playerScript.towerSelected = 0;
     }
 }
