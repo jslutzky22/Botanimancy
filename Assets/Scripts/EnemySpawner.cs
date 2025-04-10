@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private float waveOneDelay;
+
+    private void Awake()
     {
-        
+        StartCoroutine(WaveOne());
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator WaveOne()
     {
-        
+        yield return new WaitForSecondsRealtime(waveOneDelay);
     }
 }

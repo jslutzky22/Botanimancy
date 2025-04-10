@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHealth: 10
   enemySpeed: 3
+  playerScript: {fileID: 0}
   damaged: {fileID: 8300000, guid: 4c39c1d0466f51242a2bd28eb4f9ff59, type: 3}
 --- !u!82 &8798737532035369393
 AudioSource:
