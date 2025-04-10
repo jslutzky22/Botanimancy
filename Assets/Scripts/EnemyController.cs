@@ -10,6 +10,7 @@ public class EnemyController : MonoBehaviour
     public float enemySpeed;
     private int movementProgress = 0;
     public PlayerScript playerScript;
+    public EnemySpawner enemySpawner;
     private GameObject cameraForPlayerScript;
 
     private GameObject movementPoint1;
@@ -38,6 +39,7 @@ public class EnemyController : MonoBehaviour
         movementPoint9 = GameObject.FindGameObjectWithTag("movementPoint9");
         cameraForPlayerScript = GameObject.FindFirstObjectByType<Camera>().gameObject;
         playerScript = cameraForPlayerScript.GetComponent<PlayerScript>();
+        enemySpawner = cameraForPlayerScript.GetComponent<EnemySpawner>();
 
         audioSource = GetComponent<AudioSource>();
 
@@ -545,6 +547,7 @@ public class EnemyController : MonoBehaviour
         if (enemyHealth <= 0)
         {
             playerScript.plantFood++;
+            enemySpawner.enemiesAlive--;
             Destroy(this.gameObject);
         }
     }

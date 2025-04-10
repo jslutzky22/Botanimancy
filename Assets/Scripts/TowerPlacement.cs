@@ -35,9 +35,4 @@ public class TowerPlacement : MonoBehaviour
             GreenTiles.GetComponent<GreenTileScript>().selected = false;
         }
     }
-
-    private void OnMouseUpAsButton() 
-    {
-        playerScript.towerSelected = 0;
-    }
 }

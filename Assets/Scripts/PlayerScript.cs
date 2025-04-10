@@ -22,6 +22,7 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         playerInput = GetComponent<PlayerInput>();
+        plantFood = 10;
     }
 
     // Update is called once per frame
