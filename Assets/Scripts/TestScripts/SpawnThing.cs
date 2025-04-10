@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -20,7 +20,10 @@ public class SpawnThing : MonoBehaviour
         GameObject wolf = Instantiate(wolfsbanePrefab, gameObject.transform.position, Quaternion.identity);
         lrPoints.Add(transform);
         lrPoints.Add(wolf.transform);
-        
+
+        BaseCreature creature = wolf.GetComponent<BaseCreature>();
+        creature.Place(transform.position);
+
         //SetUpLine;
 
 

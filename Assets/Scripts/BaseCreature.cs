@@ -39,6 +39,8 @@ public abstract class BaseCreature : MonoBehaviour
         leashPoint = position;
         transform.position = position;
         isPlaced = true;
+
+
     }
 
     protected virtual void MoveToTarget(GameObject target)
