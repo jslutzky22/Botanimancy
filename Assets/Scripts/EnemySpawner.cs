@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private Vector2 enemySpawnPosition;
+    [SerializeField] private int enemiesTotal;
 
     [SerializeField] private float waveOneDelayStart;
     [SerializeField] private int waveOneSpawnOne;
@@ -102,9 +103,22 @@ public class EnemySpawner : MonoBehaviour
             waveTwoSpawnThree--;
         }
 
-        if (enemiesAlive == 0)
+        if (enemiesAlive <= 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            Debug.Log("Enemies all dead");
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneManager.LoadScene("WinScene");
+        }
+
+    }
+
+    private void Update()
+    {
+        if (enemiesAlive <= 0)
+        {
+            Debug.Log("Enemies all dead");
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneManager.LoadScene("WinScene");
         }
     }
 }

@@ -22,22 +22,33 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         playerInput = GetComponent<PlayerInput>();
-        plantFood = 10;
+        if (plantFood == 0)
+        {
+            plantFood = 10;
+        }
+        //plantFood = 10;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        //Vector3 mousePos = Input.mousePosition;
+        
         plantFoodText.text = "Plant Food: " + plantFood;
         if (towerSelected != 0 && selectedTileTransform != null)
         {
             selectedTile = GameObject.FindGameObjectWithTag("selectedTile");
+            Debug.Log(selectedTile);
 
             if (towerSelected == 1 && plantFood >= 5)
             {
                 plantFood -= 5;
                 selectedTile.GetComponent<GreenTileScript>().towerOnTile = true;
+                Debug.Log(selectedTile);
+
                 Instantiate(TowerOne, selectedTileTransform);
+                //Instantiate(TowerOne, mousePos, Quaternion.identity);
             }
             else if (towerSelected == 2 && plantFood >= 5)
             {
@@ -64,9 +75,21 @@ public class PlayerScript : MonoBehaviour
     }
     public void LeftClick(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.started)
         {
+            if (towerSelected == 1 && plantFood >= 5)
+            {
+                Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Debug.Log("LeftClicked");
+                plantFood -= 5;
+                Instantiate(TowerOne, cursorPos, Quaternion.identity);
+                towerSelected = 0;
+            }
+                //Vector3 mousePos = Input.mousePosition;
+            /*Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Debug.Log("LeftClicked");
+            plantFood -= 5;
+            Instantiate(TowerOne, cursorPos, Quaternion.identity);*/
         }
            
     }
@@ -75,6 +98,7 @@ public class PlayerScript : MonoBehaviour
 
         if (context.performed)
         {
+            towerSelected = 0;
             Debug.Log("RightClicked");
         }
     }
