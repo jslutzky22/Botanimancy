@@ -28,7 +28,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void PlayerTakeDamage(int amount)
     {
-        currentHealth -= amount - 1;
+        currentHealth -= amount;
         Debug.Log("Player took damage! Health is now: " + currentHealth);
         healthText.text = "Health: " + currentHealth;
 
