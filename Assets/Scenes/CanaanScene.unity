@@ -2344,6 +2344,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WolfTower
       objectReference: {fileID: 0}
+    - target: {fileID: 4626066217335212253, guid: 7920a600675b9e148bbfc7560a77a0e4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8406710127629233464, guid: 7920a600675b9e148bbfc7560a77a0e4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.39

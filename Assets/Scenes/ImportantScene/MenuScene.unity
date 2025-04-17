@@ -718,11 +718,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Place summon plantimals by clicking on their icon and clicking where you
-    want them to go
+  m_text: 'Place your creatures by left clicking on their icon and left clicking
+    where you want them to go. Right click to cancel your placement
 
 
-    Upgrade them by clicking on them with plantfood'
+    Upgrade
+    them by clicking on them with plantfood (currently not implemented)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 37432c872e0dcf44f936f8e59957384b, type: 2}
   m_sharedMaterial: {fileID: 7462236092453561489, guid: d800f27c7b7d48847ab429740ecdeaa1, type: 2}

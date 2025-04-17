@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -22,22 +24,33 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         playerInput = GetComponent<PlayerInput>();
-        plantFood = 10;
+        if (plantFood == 0)
+        {
+            plantFood = 10;
+        }
+        //plantFood = 10;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        //Vector3 mousePos = Input.mousePosition;
+        
         plantFoodText.text = "Plant Food: " + plantFood;
         if (towerSelected != 0 && selectedTileTransform != null)
         {
             selectedTile = GameObject.FindGameObjectWithTag("selectedTile");
+            Debug.Log(selectedTile);
 
             if (towerSelected == 1 && plantFood >= 5)
             {
                 plantFood -= 5;
                 selectedTile.GetComponent<GreenTileScript>().towerOnTile = true;
+                Debug.Log(selectedTile);
+
                 Instantiate(TowerOne, selectedTileTransform);
+                //Instantiate(TowerOne, mousePos, Quaternion.identity);
             }
             else if (towerSelected == 2 && plantFood >= 5)
             {
@@ -64,9 +77,49 @@ public class PlayerScript : MonoBehaviour
     }
     public void LeftClick(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.started)
         {
+            if (towerSelected == 1 && plantFood >= 5)
+            {
+                Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Debug.Log("LeftClicked");
+                plantFood -= 5;
+                Instantiate(TowerOne, cursorPos, Quaternion.identity);
+                towerSelected = 0;
+            }
+            if (towerSelected == 5 && plantFood >= 10)
+            {
+                Ray rayOrigin = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit2D hit = Physics2D.Raycast(rayOrigin.origin, rayOrigin.direction);
+                //Debug.Log(hit.point);
+                //Ray rayOrigin = Camera.main.ScreenPointToRay(Input.mousePosition);
+                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
+                //if (Physics.Raycast(rayOrigin, out hit) )
+                //{
+                    if (hit.collider != null)
+                    {
+                        Debug.Log("Raycast Firing");
+                        if (hit.collider.tag == "Wolf")
+                        {
+                            Debug.Log("Raycast Found wolf");
+                            if (hit.transform.gameObject.GetComponent<Wolfsbane>().upgraded == false)
+                            {
+                                hit.transform.gameObject.GetComponent<Wolfsbane>().upgrade();
+                            plantFood -= 10;
+                            }
+                            //hit.transform.gameObject.GetComponent<Wolfsbane>().upgraded = false;
+                       
+                           // hit.transform.gameObject.GetComponent<Wolfsbane>().upgrade();
+                        }
+                    }
+               // }
+            }
+              
+            //Vector3 mousePos = Input.mousePosition;
+            /*Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Debug.Log("LeftClicked");
+            plantFood -= 5;
+            Instantiate(TowerOne, cursorPos, Quaternion.identity);*/
         }
            
     }
@@ -75,7 +128,16 @@ public class PlayerScript : MonoBehaviour
 
         if (context.performed)
         {
+            towerSelected = 0;
             Debug.Log("RightClicked");
+        }
+    }
+
+    public void Restart(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }

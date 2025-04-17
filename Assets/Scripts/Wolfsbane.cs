@@ -5,6 +5,8 @@ public class Wolfsbane : BaseCreature
 {
     public int damage = 25;
     public float attackCooldown = 1f;
+    public int upgradeMultiplier = 2;
+    public bool upgraded = false;
     Animator m_Animator;
 
     private void Start()
@@ -27,5 +29,20 @@ public class Wolfsbane : BaseCreature
 
         yield return new WaitForSeconds(attackCooldown);
         isAttacking = false;
+    }
+
+    public void upgrade()
+    {
+        if (upgraded == false)
+        {
+            Debug.Log("UpgradeWorked");
+            damage = damage * upgradeMultiplier;
+            attackCooldown = attackCooldown / upgradeMultiplier;
+            speed = speed * upgradeMultiplier;
+            leashRange = leashRange * upgradeMultiplier;
+            gameObject.transform.localScale = Vector3.one * upgradeMultiplier;
+            upgraded = true;
+        }
+        
     }
 }

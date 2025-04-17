@@ -25,7 +25,7 @@ public class TowerPlacement : MonoBehaviour
     private void OnMouseDown()
     {
         playerScript.towerSelected = TowerType;
-
+        //Debug.Log(TowerType);
         playerScript.selectedTileTransform = null;
 
         greenTiles = GameObject.FindGameObjectsWithTag("GreenTile");
