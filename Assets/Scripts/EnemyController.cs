@@ -438,7 +438,7 @@ public class EnemyController : MonoBehaviour
                 }
                 movementProgress++;
             }
-            else if (movementPoint8.transform.position.x > transform.position.x)
+            /*else if (movementPoint8.transform.position.x > transform.position.x)
             {
                 while (transform.position.x < movementPoint8.transform.position.x && movementProgress == 7 && enemyHealth > 0)
                 {
@@ -450,7 +450,7 @@ public class EnemyController : MonoBehaviour
                     transform.position = movementPoint8.transform.position;
                 }
                 movementProgress++;
-            }
+            }*/
             else if (movementPoint8.transform.position.y > transform.position.y)
             {
                 while (transform.position.y < movementPoint8.transform.position.y && movementProgress == 7 && enemyHealth > 0)

@@ -121,7 +121,8 @@ public class PlayerScript : MonoBehaviour
                            // hit.transform.gameObject.GetComponent<Wolfsbane>().upgrade();
                         }
                     }
-               // }
+                // }
+                towerSelected = 0;
             }
               
             //Vector3 mousePos = Input.mousePosition;
