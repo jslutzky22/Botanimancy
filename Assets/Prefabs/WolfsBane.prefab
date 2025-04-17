@@ -107,7 +107,7 @@ MonoBehaviour:
   isPlaced: 1
   damage: 5
   attackCooldown: 1
-  upgradeMultiplier: 2
+  upgradeMultiplier: 1
   upgraded: 0
 --- !u!95 &8320422097844952942
 Animator:
