@@ -10,6 +10,7 @@ public class TowerPlacement : MonoBehaviour
     private GameObject sceneCamera;
     private PlayerScript playerScript;
     private GameObject[] greenTiles;
+    private bool colorChanged = false;
 
     private void Start()
     {
@@ -19,11 +20,17 @@ public class TowerPlacement : MonoBehaviour
 
     private void Update()
     {
-        
+        if (playerScript.towerSelected != TowerType && colorChanged == true)
+        {
+            colorChanged = false;
+            GetComponent<SpriteRenderer>().color = new Color(0.5188679f, 0.4534298f, 0.2667764f);
+        }
     }
 
     private void OnMouseDown()
     {
+        GetComponent<SpriteRenderer>().color = new Color(0.3679245f, 0.3345163f, 0.2342916f);
+        colorChanged = true;
         playerScript.towerSelected = TowerType;
         //Debug.Log(TowerType);
         playerScript.selectedTileTransform = null;
