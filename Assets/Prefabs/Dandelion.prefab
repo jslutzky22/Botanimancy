@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 642412471750699656}
   m_Layer: 0
   m_Name: Dandelion
-  m_TagString: Wolf
+  m_TagString: Lion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -196,7 +196,7 @@ MonoBehaviour:
   health: 100
   speed: 2
   leashRange: 2
-  attackRange: 2
+  attackRange: 1
   isPlaced: 0
   damage: 15
   attackCooldown: 1

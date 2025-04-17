@@ -108,18 +108,30 @@ public class PlayerScript : MonoBehaviour
                     {
                         Debug.Log("Raycast Firing");
                         if (hit.collider.tag == "Wolf")
-                        {
-                            Debug.Log("Raycast Found wolf");
+                         {
+                        Debug.Log("Raycast Found wolf");
                             if (hit.transform.gameObject.GetComponent<Wolfsbane>().upgraded == false)
+                         {
+                            hit.transform.gameObject.GetComponent<Wolfsbane>().upgrade();
+                            plantFood -= 10;
+                            towerSelected = 0;
+                         }
+                        }
+                        if (hit.collider.tag == "Lion")
+                        {
+                            Debug.Log("FoundLion");
+                            if (hit.transform.gameObject.GetComponent<Dandelion>().upgraded == false)
                             {
-                                hit.transform.gameObject.GetComponent<Wolfsbane>().upgrade();
+                                Debug.Log("LionUpgrading");
+                                hit.transform.gameObject.GetComponent<Dandelion>().upgrade();
                                 plantFood -= 10;
                                 towerSelected = 0;
                             }
-                            //hit.transform.gameObject.GetComponent<Wolfsbane>().upgraded = false;
-                       
-                           // hit.transform.gameObject.GetComponent<Wolfsbane>().upgrade();
                         }
+                        //hit.transform.gameObject.GetComponent<Wolfsbane>().upgraded = false;
+
+                            // hit.transform.gameObject.GetComponent<Wolfsbane>().upgrade();
+                        
                     }
                 // }
                 towerSelected = 0;
