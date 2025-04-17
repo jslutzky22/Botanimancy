@@ -17,6 +17,7 @@ TagManager:
   - movementPoint8
   - movementPoint9
   - Wolf
+  - Lion
   layers:
   - Default
   - TransparentFX
