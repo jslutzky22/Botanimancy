@@ -87,6 +87,14 @@ public class PlayerScript : MonoBehaviour
                 Instantiate(TowerOne, cursorPos, Quaternion.identity);
                 towerSelected = 0;
             }
+            if (towerSelected == 2 && plantFood >= 5)
+            {
+                Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Debug.Log("LeftClicked");
+                plantFood -= 5;
+                Instantiate(TowerTwo, cursorPos, Quaternion.identity);
+                towerSelected = 0;
+            }
             if (towerSelected == 5 && plantFood >= 10)
             {
                 Ray rayOrigin = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -100,17 +108,30 @@ public class PlayerScript : MonoBehaviour
                     {
                         Debug.Log("Raycast Firing");
                         if (hit.collider.tag == "Wolf")
-                        {
-                            Debug.Log("Raycast Found wolf");
+                         {
+                        Debug.Log("Raycast Found wolf");
                             if (hit.transform.gameObject.GetComponent<Wolfsbane>().upgraded == false)
-                            {
-                                hit.transform.gameObject.GetComponent<Wolfsbane>().upgrade();
+                         {
+                            hit.transform.gameObject.GetComponent<Wolfsbane>().upgrade();
                             plantFood -= 10;
-                            }
-                            //hit.transform.gameObject.GetComponent<Wolfsbane>().upgraded = false;
-                       
-                           // hit.transform.gameObject.GetComponent<Wolfsbane>().upgrade();
+                            towerSelected = 0;
+                         }
                         }
+                        if (hit.collider.tag == "Lion")
+                        {
+                            Debug.Log("FoundLion");
+                            if (hit.transform.gameObject.GetComponent<Dandelion>().upgraded == false)
+                            {
+                                Debug.Log("LionUpgrading");
+                                hit.transform.gameObject.GetComponent<Dandelion>().upgrade();
+                                plantFood -= 10;
+                                towerSelected = 0;
+                            }
+                        }
+                        //hit.transform.gameObject.GetComponent<Wolfsbane>().upgraded = false;
+
+                            // hit.transform.gameObject.GetComponent<Wolfsbane>().upgrade();
+                        
                     }
                 // }
                 towerSelected = 0;
