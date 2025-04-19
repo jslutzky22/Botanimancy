@@ -6,13 +6,11 @@ using UnityEngine.SceneManagement;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private Vector2 enemySpawnPosition;
-    [SerializeField] private int enemiesTotal;
 
     [SerializeField] private float waveOneDelayStart;
     [SerializeField] private int waveOneSpawnOne;
     [SerializeField] private float waveOneSpawnOneDelay;
     [SerializeField] private GameObject waveOneSpawnOneEnemy;
-    [SerializeField] private float waveOneDelayOne;
     [SerializeField] private int waveOneSpawnTwo;
     [SerializeField] private float waveOneSpawnTwoDelay;
     [SerializeField] private GameObject waveOneSpawnTwoEnemy;
@@ -38,7 +36,9 @@ public class EnemySpawner : MonoBehaviour
 
     public int enemiesAlive;
 
-    private void Awake()
+    private int wavesSent;
+
+    public void StartWaves()
     {
         StartCoroutine(WaveOne());
     }
@@ -53,6 +53,10 @@ public class EnemySpawner : MonoBehaviour
             yield return new WaitForSecondsRealtime(waveOneSpawnOneDelay);
             waveOneSpawnOne--;
         }
+        if (waveOneSpawnOne == 0)
+        {
+            wavesSent++;
+        }
         yield return new WaitForSecondsRealtime(waveOneDelayTwo);
         while (waveOneSpawnTwo > 0)
         {
@@ -60,6 +64,10 @@ public class EnemySpawner : MonoBehaviour
             enemiesAlive++;
             yield return new WaitForSecondsRealtime(waveOneSpawnTwoDelay);
             waveOneSpawnTwo--;
+        }
+        if (waveOneSpawnTwo == 0)
+        {
+            wavesSent++;
         }
         yield return new WaitForSecondsRealtime(waveOneDelayThree);
         while (waveOneSpawnThree > 0)
@@ -69,9 +77,18 @@ public class EnemySpawner : MonoBehaviour
             yield return new WaitForSecondsRealtime(waveOneSpawnThreeDelay);
             waveOneSpawnThree--;
         }
-
-        if (enemiesAlive == 0)
+        if (waveOneSpawnThree == 0)
         {
+            wavesSent++;
+        }
+
+        while (enemiesAlive > 0)
+        {
+            yield return new WaitForSecondsRealtime(0.1f);
+        }
+        if (enemiesAlive == 0 && wavesSent == 3)
+        {
+            Debug.Log("chicken jockey");
             StartCoroutine(WaveTwo());
         }
     }
@@ -86,6 +103,10 @@ public class EnemySpawner : MonoBehaviour
             yield return new WaitForSecondsRealtime(waveTwoSpawnOneDelay);
             waveTwoSpawnOne--;
         }
+        if (waveTwoSpawnOne == 0)
+        {
+            wavesSent++;
+        }
         yield return new WaitForSecondsRealtime(waveTwoDelayTwo);
         while (waveTwoSpawnTwo > 0)
         {
@@ -93,6 +114,10 @@ public class EnemySpawner : MonoBehaviour
             enemiesAlive++;
             yield return new WaitForSecondsRealtime(waveTwoSpawnTwoDelay);
             waveTwoSpawnTwo--;
+        }
+        if (waveTwoSpawnTwo == 0)
+        {
+            wavesSent++;
         }
         yield return new WaitForSecondsRealtime(waveTwoDelayThree);
         while (waveTwoSpawnThree > 0)
@@ -102,11 +127,18 @@ public class EnemySpawner : MonoBehaviour
             yield return new WaitForSecondsRealtime(waveTwoSpawnThreeDelay);
             waveTwoSpawnThree--;
         }
+        if (waveTwoSpawnThree == 0)
+        {
+            wavesSent++;
+        }
 
-        if (enemiesAlive <= 0)
+        while (enemiesAlive > 0)
+        {
+            yield return new WaitForSecondsRealtime(0.1f);
+        }
+        if (enemiesAlive <= 0 && wavesSent == 6)
         {
             Debug.Log("Enemies all dead");
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             SceneManager.LoadScene("WinScene");
         }
 
@@ -114,11 +146,11 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        if (enemiesAlive <= 0)
-        {
-            Debug.Log("Enemies all dead");
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            SceneManager.LoadScene("WinScene");
-        }
+        //if (enemiesAlive <= 0)
+        //{
+        //    Debug.Log("Enemies all dead");
+        //    //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //    SceneManager.LoadScene("WinScene");
+        //}
     }
 }

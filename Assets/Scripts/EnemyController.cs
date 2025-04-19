@@ -538,6 +538,8 @@ public class EnemyController : MonoBehaviour
                 // Subtract 1 HP from player
                 PlayerHealth.Instance.PlayerTakeDamage(1); // or whatever method you use
 
+                enemySpawner.enemiesAlive--;
+
                 // Destroy the enemy
                 Destroy(this.gameObject);
             }
