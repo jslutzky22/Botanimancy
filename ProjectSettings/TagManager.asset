@@ -18,6 +18,10 @@ TagManager:
   - movementPoint9
   - Wolf
   - Lion
+  - movementPoint10
+  - movementPoint11
+  - movementPoint12
+  - movementPoint13
   layers:
   - Default
   - TransparentFX
