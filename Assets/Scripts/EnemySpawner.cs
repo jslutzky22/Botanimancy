@@ -118,7 +118,7 @@ public class EnemySpawner : MonoBehaviour
         {
             Debug.Log("Enemies all dead");
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            SceneManager.LoadScene("WinScene");
+            //SceneManager.LoadScene("WinScene");
         }
     }
 }
