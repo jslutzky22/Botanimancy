@@ -22,6 +22,10 @@ public class EnemyController : MonoBehaviour
     private GameObject movementPoint7;
     private GameObject movementPoint8;
     private GameObject movementPoint9;
+    private GameObject movementPoint10;
+    private GameObject movementPoint11;
+    private GameObject movementPoint12;
+    private GameObject movementPoint13;
 
     AudioSource audioSource;
     [SerializeField] private AudioClip damaged;
@@ -37,6 +41,10 @@ public class EnemyController : MonoBehaviour
         movementPoint7 = GameObject.FindGameObjectWithTag("movementPoint7");
         movementPoint8 = GameObject.FindGameObjectWithTag("movementPoint8");
         movementPoint9 = GameObject.FindGameObjectWithTag("movementPoint9");
+        movementPoint10 = GameObject.FindGameObjectWithTag("movementPoint10");
+        movementPoint11 = GameObject.FindGameObjectWithTag("movementPoint11");
+        movementPoint12 = GameObject.FindGameObjectWithTag("movementPoint12");
+        movementPoint13 = GameObject.FindGameObjectWithTag("movementPoint13");
         cameraForPlayerScript = GameObject.FindFirstObjectByType<Camera>().gameObject;
         playerScript = cameraForPlayerScript.GetComponent<PlayerScript>();
         enemySpawner = cameraForPlayerScript.GetComponent<EnemySpawner>();
@@ -438,7 +446,7 @@ public class EnemyController : MonoBehaviour
                 }
                 movementProgress++;
             }
-            /*else if (movementPoint8.transform.position.x > transform.position.x)
+            else if (movementPoint8.transform.position.x > transform.position.x)
             {
                 while (transform.position.x < movementPoint8.transform.position.x && movementProgress == 7 && enemyHealth > 0)
                 {
@@ -450,7 +458,7 @@ public class EnemyController : MonoBehaviour
                     transform.position = movementPoint8.transform.position;
                 }
                 movementProgress++;
-            }*/
+            }
             else if (movementPoint8.transform.position.y > transform.position.y)
             {
                 while (transform.position.y < movementPoint8.transform.position.y && movementProgress == 7 && enemyHealth > 0)
@@ -532,11 +540,230 @@ public class EnemyController : MonoBehaviour
                 movementProgress++;
             }
 
+
+            if (movementPoint10.transform.position.x < transform.position.x)
+            {
+                while (transform.position.x > movementPoint10.transform.position.x && movementProgress == 9 && enemyHealth > 0)
+                {
+                    transform.position -= new Vector3((enemySpeed / 100), 0, 0);
+                    yield return new WaitForSecondsRealtime(0.01f);
+                }
+                if (transform.position != movementPoint10.transform.position)
+                {
+                    transform.position = movementPoint10.transform.position;
+                }
+                movementProgress++;
+            }
+            else if (movementPoint10.transform.position.x > transform.position.x)
+            {
+                while (transform.position.x < movementPoint10.transform.position.x && movementProgress == 9 && enemyHealth > 0)
+                {
+                    transform.position += new Vector3((enemySpeed / 100), 0, 0);
+                    yield return new WaitForSecondsRealtime(0.01f);
+                }
+                if (transform.position != movementPoint10.transform.position)
+                {
+                    transform.position = movementPoint10.transform.position;
+                }
+                movementProgress++;
+            }
+            else if (movementPoint10.transform.position.y > transform.position.y)
+            {
+                while (transform.position.y < movementPoint10.transform.position.y && movementProgress == 9 && enemyHealth > 0)
+                {
+                    transform.position += new Vector3(0, (enemySpeed / 100), 0);
+                    yield return new WaitForSecondsRealtime(0.01f);
+                }
+                if (transform.position != movementPoint10.transform.position)
+                {
+                    transform.position = movementPoint10.transform.position;
+                }
+                movementProgress++;
+            }
+            else if (movementPoint10.transform.position.y < transform.position.y)
+            {
+                while (transform.position.y > movementPoint10.transform.position.y && movementProgress == 9 && enemyHealth > 0)
+                {
+                    transform.position -= new Vector3(0, (enemySpeed / 100), 0);
+                    yield return new WaitForSecondsRealtime(0.01f);
+                }
+                if (transform.position != movementPoint10.transform.position)
+                {
+                    transform.position = movementPoint10.transform.position;
+                }
+                movementProgress++;
+            }
+
+
+            if (movementPoint11.transform.position.x < transform.position.x)
+            {
+                while (transform.position.x > movementPoint11.transform.position.x && movementProgress == 10 && enemyHealth > 0)
+                {
+                    transform.position -= new Vector3((enemySpeed / 100), 0, 0);
+                    yield return new WaitForSecondsRealtime(0.01f);
+                }
+                if (transform.position != movementPoint11.transform.position)
+                {
+                    transform.position = movementPoint11.transform.position;
+                }
+                movementProgress++;
+            }
+            else if (movementPoint11.transform.position.x > transform.position.x)
+            {
+                while (transform.position.x < movementPoint11.transform.position.x && movementProgress == 10 && enemyHealth > 0)
+                {
+                    transform.position += new Vector3((enemySpeed / 100), 0, 0);
+                    yield return new WaitForSecondsRealtime(0.01f);
+                }
+                if (transform.position != movementPoint11.transform.position)
+                {
+                    transform.position = movementPoint11.transform.position;
+                }
+                movementProgress++;
+            }
+            else if (movementPoint11.transform.position.y > transform.position.y)
+            {
+                while (transform.position.y < movementPoint11.transform.position.y && movementProgress == 10 && enemyHealth > 0)
+                {
+                    transform.position += new Vector3(0, (enemySpeed / 100), 0);
+                    yield return new WaitForSecondsRealtime(0.01f);
+                }
+                if (transform.position != movementPoint11.transform.position)
+                {
+                    transform.position = movementPoint11.transform.position;
+                }
+                movementProgress++;
+            }
+            else if (movementPoint11.transform.position.y < transform.position.y)
+            {
+                while (transform.position.y > movementPoint11.transform.position.y && movementProgress == 10 && enemyHealth > 0)
+                {
+                    transform.position -= new Vector3(0, (enemySpeed / 100), 0);
+                    yield return new WaitForSecondsRealtime(0.01f);
+                }
+                if (transform.position != movementPoint11.transform.position)
+                {
+                    transform.position = movementPoint11.transform.position;
+                }
+                movementProgress++;
+            }
+
+
+            if (movementPoint12.transform.position.x < transform.position.x)
+            {
+                while (transform.position.x > movementPoint12.transform.position.x && movementProgress == 11 && enemyHealth > 0)
+                {
+                    transform.position -= new Vector3((enemySpeed / 100), 0, 0);
+                    yield return new WaitForSecondsRealtime(0.01f);
+                }
+                if (transform.position != movementPoint12.transform.position)
+                {
+                    transform.position = movementPoint12.transform.position;
+                }
+                movementProgress++;
+            }
+            else if (movementPoint12.transform.position.x > transform.position.x)
+            {
+                while (transform.position.x < movementPoint12.transform.position.x && movementProgress == 11 && enemyHealth > 0)
+                {
+                    transform.position += new Vector3((enemySpeed / 100), 0, 0);
+                    yield return new WaitForSecondsRealtime(0.01f);
+                }
+                if (transform.position != movementPoint12.transform.position)
+                {
+                    transform.position = movementPoint12.transform.position;
+                }
+                movementProgress++;
+            }
+            else if (movementPoint12.transform.position.y > transform.position.y)
+            {
+                while (transform.position.y < movementPoint12.transform.position.y && movementProgress == 11 && enemyHealth > 0)
+                {
+                    transform.position += new Vector3(0, (enemySpeed / 100), 0);
+                    yield return new WaitForSecondsRealtime(0.01f);
+                }
+                if (transform.position != movementPoint12.transform.position)
+                {
+                    transform.position = movementPoint12.transform.position;
+                }
+                movementProgress++;
+            }
+            else if (movementPoint12.transform.position.y < transform.position.y)
+            {
+                while (transform.position.y > movementPoint12.transform.position.y && movementProgress == 11 && enemyHealth > 0)
+                {
+                    transform.position -= new Vector3(0, (enemySpeed / 100), 0);
+                    yield return new WaitForSecondsRealtime(0.01f);
+                }
+                if (transform.position != movementPoint12.transform.position)
+                {
+                    transform.position = movementPoint12.transform.position;
+                }
+                movementProgress++;
+            }
+
+
+            if (movementPoint13.transform.position.x < transform.position.x)
+            {
+                while (transform.position.x > movementPoint13.transform.position.x && movementProgress == 12 && enemyHealth > 0)
+                {
+                    transform.position -= new Vector3((enemySpeed / 100), 0, 0);
+                    yield return new WaitForSecondsRealtime(0.01f);
+                }
+                if (transform.position != movementPoint13.transform.position)
+                {
+                    transform.position = movementPoint13.transform.position;
+                }
+                movementProgress++;
+            }
+            else if (movementPoint13.transform.position.x > transform.position.x)
+            {
+                while (transform.position.x < movementPoint13.transform.position.x && movementProgress == 12 && enemyHealth > 0)
+                {
+                    transform.position += new Vector3((enemySpeed / 100), 0, 0);
+                    yield return new WaitForSecondsRealtime(0.01f);
+                }
+                if (transform.position != movementPoint13.transform.position)
+                {
+                    transform.position = movementPoint13.transform.position;
+                }
+                movementProgress++;
+            }
+            else if (movementPoint13.transform.position.y > transform.position.y)
+            {
+                while (transform.position.y < movementPoint13.transform.position.y && movementProgress == 12 && enemyHealth > 0)
+                {
+                    transform.position += new Vector3(0, (enemySpeed / 100), 0);
+                    yield return new WaitForSecondsRealtime(0.01f);
+                }
+                if (transform.position != movementPoint13.transform.position)
+                {
+                    transform.position = movementPoint13.transform.position;
+                }
+                movementProgress++;
+            }
+            else if (movementPoint13.transform.position.y < transform.position.y)
+            {
+                while (transform.position.y > movementPoint13.transform.position.y && movementProgress == 12 && enemyHealth > 0)
+                {
+                    transform.position -= new Vector3(0, (enemySpeed / 100), 0);
+                    yield return new WaitForSecondsRealtime(0.01f);
+                }
+                if (transform.position != movementPoint13.transform.position)
+                {
+                    transform.position = movementPoint13.transform.position;
+                }
+                movementProgress++;
+            }
+
+
             // Final check: if movement is done, damage the player and destroy the enemy
-            if (movementProgress >= 9 && enemyHealth > 0)
+            if (movementProgress >= 13 && enemyHealth > 0)
             {
                 // Subtract 1 HP from player
                 PlayerHealth.Instance.PlayerTakeDamage(1); // or whatever method you use
+
+                enemySpawner.enemiesAlive--;
 
                 // Destroy the enemy
                 Destroy(this.gameObject);
