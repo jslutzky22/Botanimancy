@@ -81,15 +81,36 @@ public class PlayerScript : MonoBehaviour
         {
             if (towerSelected == 1 && plantFood >= 5)
             {
+                Debug.Log("TowerClicked");
                 Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Ray rayOrigin = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit2D hit = Physics2D.Raycast(rayOrigin.origin, rayOrigin.direction);
                 Debug.Log("LeftClicked");
-                if (hit.collider.tag != "Obstacle" && hit.collider.tag != "Wolf" && hit.collider.tag != "Lion")
+                /*if (hit.collider.tag == "Obstacle" || hit.collider.tag == "Wolf" || hit.collider.tag == "Lion")
                 {
-                    plantFood -= 5;
-                    Instantiate(TowerOne, cursorPos, Quaternion.identity);
-                }
+                    return;
+                }*/
+                //else
+                //{
+                    //Debug.Log("NotHittingObstacle");
+                    //if (hit.collider.tag != "Obstacle")
+                    //{
+                    //Debug.Log("ShotObstacle");
+                    if (hit.collider == null)
+                    {
+                        plantFood -= 5;
+                        Instantiate(TowerOne, cursorPos, Quaternion.identity);
+                    }
+                   
+                    //}
+                //Debug.Log(hit.collider.tag);
+                //if (hit.collider != null)
+                //{
+                    //Debug.Log(hit.collider.tag);
+                    //plantFood -= 5;
+                    //Instantiate(TowerOne, cursorPos, Quaternion.identity);
+               // }
+                //}
                 towerSelected = 0;
             }
             if (towerSelected == 2 && plantFood >= 5)
@@ -98,7 +119,7 @@ public class PlayerScript : MonoBehaviour
                 Ray rayOrigin = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit2D hit = Physics2D.Raycast(rayOrigin.origin, rayOrigin.direction);
                 Debug.Log("LeftClicked");
-                if (hit.collider.tag != "Obstacle" && hit.collider.tag != "Wolf" && hit.collider.tag != "Lion")
+                if (hit.collider == null)
                 {
                     plantFood -= 5;
                     Instantiate(TowerTwo, cursorPos, Quaternion.identity);
