@@ -36,9 +36,18 @@ public class EnemySpawner : MonoBehaviour
     public int enemiesAlive;
 
     private int wavesSent;
+    AudioSource audioSource;
+    [SerializeField] private AudioClip waveStart;
+    [SerializeField] private AudioClip waveComplete;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     public void StartWaves()
     {
+        audioSource.PlayOneShot(waveStart, 0.2F);
         StartCoroutine(WaveOne());
     }
 
@@ -87,6 +96,7 @@ public class EnemySpawner : MonoBehaviour
         }
         if (enemiesAlive == 0 && wavesSent == 3)
         {
+            audioSource.PlayOneShot(waveComplete, 1F);
             StartCoroutine(WaveTwo());
         }
     }
