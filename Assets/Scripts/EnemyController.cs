@@ -32,19 +32,58 @@ public class EnemyController : MonoBehaviour
 
     void Awake()
     {
-        movementPoint1 = GameObject.FindGameObjectWithTag("movementPoint1");
-        movementPoint2 = GameObject.FindGameObjectWithTag("movementPoint2");
-        movementPoint3 = GameObject.FindGameObjectWithTag("movementPoint3");
-        movementPoint4 = GameObject.FindGameObjectWithTag("movementPoint4");
-        movementPoint5 = GameObject.FindGameObjectWithTag("movementPoint5");
-        movementPoint6 = GameObject.FindGameObjectWithTag("movementPoint6");
-        movementPoint7 = GameObject.FindGameObjectWithTag("movementPoint7");
-        movementPoint8 = GameObject.FindGameObjectWithTag("movementPoint8");
-        movementPoint9 = GameObject.FindGameObjectWithTag("movementPoint9");
-        movementPoint10 = GameObject.FindGameObjectWithTag("movementPoint10");
-        movementPoint11 = GameObject.FindGameObjectWithTag("movementPoint11");
-        movementPoint12 = GameObject.FindGameObjectWithTag("movementPoint12");
-        movementPoint13 = GameObject.FindGameObjectWithTag("movementPoint13");
+        if (GameObject.FindGameObjectWithTag("movementPoint1") != null)
+        {
+            movementPoint1 = GameObject.FindGameObjectWithTag("movementPoint1");
+        }
+        if (GameObject.FindGameObjectWithTag("movementPoint2") != null)
+        {
+            movementPoint2 = GameObject.FindGameObjectWithTag("movementPoint2");
+        }
+        if (GameObject.FindGameObjectWithTag("movementPoint3") != null)
+        {
+            movementPoint3 = GameObject.FindGameObjectWithTag("movementPoint3");
+        }
+        if (GameObject.FindGameObjectWithTag("movementPoint4") != null)
+        {
+            movementPoint4 = GameObject.FindGameObjectWithTag("movementPoint4");
+        }
+        if (GameObject.FindGameObjectWithTag("movementPoint5") != null)
+        {
+            movementPoint5 = GameObject.FindGameObjectWithTag("movementPoint5");
+        }
+        if (GameObject.FindGameObjectWithTag("movementPoint6") != null)
+        {
+            movementPoint6 = GameObject.FindGameObjectWithTag("movementPoint6");
+        }
+        if (GameObject.FindGameObjectWithTag("movementPoint7") != null)
+        {
+            movementPoint7 = GameObject.FindGameObjectWithTag("movementPoint7");
+        }
+        if (GameObject.FindGameObjectWithTag("movementPoint8") != null)
+        {
+            movementPoint8 = GameObject.FindGameObjectWithTag("movementPoint8");
+        }
+        if (GameObject.FindGameObjectWithTag("movementPoint9") != null)
+        {
+            movementPoint9 = GameObject.FindGameObjectWithTag("movementPoint9");
+        }
+        if (GameObject.FindGameObjectWithTag("movementPoint10") != null)
+        {
+            movementPoint10 = GameObject.FindGameObjectWithTag("movementPoint10");
+        }
+        if (GameObject.FindGameObjectWithTag("movementPoint11") != null)
+        {
+            movementPoint11 = GameObject.FindGameObjectWithTag("movementPoint11");
+        }
+        if (GameObject.FindGameObjectWithTag("movementPoint12") != null)
+        {
+            movementPoint12 = GameObject.FindGameObjectWithTag("movementPoint12");
+        }
+        if (GameObject.FindGameObjectWithTag("movementPoint13") != null)
+        {
+            movementPoint13 = GameObject.FindGameObjectWithTag("movementPoint13");
+        }
         cameraForPlayerScript = GameObject.FindFirstObjectByType<Camera>().gameObject;
         playerScript = cameraForPlayerScript.GetComponent<PlayerScript>();
         enemySpawner = cameraForPlayerScript.GetComponent<EnemySpawner>();
