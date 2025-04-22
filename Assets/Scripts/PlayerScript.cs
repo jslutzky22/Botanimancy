@@ -82,17 +82,27 @@ public class PlayerScript : MonoBehaviour
             if (towerSelected == 1 && plantFood >= 5)
             {
                 Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Ray rayOrigin = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit2D hit = Physics2D.Raycast(rayOrigin.origin, rayOrigin.direction);
                 Debug.Log("LeftClicked");
-                plantFood -= 5;
-                Instantiate(TowerOne, cursorPos, Quaternion.identity);
+                if (hit.collider.tag != "Obstacle" && hit.collider.tag != "Wolf" && hit.collider.tag != "Lion")
+                {
+                    plantFood -= 5;
+                    Instantiate(TowerOne, cursorPos, Quaternion.identity);
+                }
                 towerSelected = 0;
             }
             if (towerSelected == 2 && plantFood >= 5)
             {
                 Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Ray rayOrigin = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit2D hit = Physics2D.Raycast(rayOrigin.origin, rayOrigin.direction);
                 Debug.Log("LeftClicked");
-                plantFood -= 5;
-                Instantiate(TowerTwo, cursorPos, Quaternion.identity);
+                if (hit.collider.tag != "Obstacle" && hit.collider.tag != "Wolf" && hit.collider.tag != "Lion")
+                {
+                    plantFood -= 5;
+                    Instantiate(TowerTwo, cursorPos, Quaternion.identity);
+                }
                 towerSelected = 0;
             }
             if (towerSelected == 5 && plantFood >= 10)

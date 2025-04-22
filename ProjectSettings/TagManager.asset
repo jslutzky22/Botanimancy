@@ -19,6 +19,7 @@ TagManager:
   - Wolf
   - Lion
   - Dead
+
   layers:
   - Default
   - TransparentFX
