@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class CreatureSpawner : MonoBehaviour
 {
-    public GameObject wolfsbanePrefab;
-    public Wolfsbane wolfsbane;
+    public GameObject spiderlilyprefab;
+    public SpiderLily spiderLily;
     
 
     void Start()
     {
         // Example placement at (3, 0)
-        GameObject wolf = Instantiate(wolfsbanePrefab, new Vector3(4, 0, 0), Quaternion.identity);
+        GameObject wolf = Instantiate(spiderlilyprefab, new Vector3(4, 0, 0), Quaternion.identity);
         wolf.GetComponent<BaseCreature>().Place(new Vector3(4, 0, 0));
-        wolfsbane.isPlaced = true;
+        spiderLily.isPlaced = true;
     }
 }

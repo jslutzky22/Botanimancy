@@ -796,6 +796,7 @@ public class EnemyController : MonoBehaviour
             }
 
 
+
             // Final check: if movement is done, damage the player and destroy the enemy
             if (enemyHealth > 0)
             {
@@ -807,9 +808,21 @@ public class EnemyController : MonoBehaviour
                 // Destroy the enemy
                 Destroy(this.gameObject);
             }
+
+
         }
     }
-    
+
+    public IEnumerator ApplySlow(float slowAmount, float duration)
+    {
+        float originalSpeed = enemySpeed;
+        enemySpeed *= slowAmount;
+
+        yield return new WaitForSeconds(duration);
+
+        enemySpeed = originalSpeed;
+    }
+
     public void TakeDamage(int amount)
     {
         enemyHealth -= amount;
