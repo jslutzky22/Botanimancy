@@ -2913,33 +2913,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpawnPosition: {x: 9.5, y: -1.5}
-  enemiesTotal: 0
-  waveOneDelayStart: 0
-  waveOneSpawnOne: 0
-  waveOneSpawnOneDelay: 0
-  waveOneSpawnOneEnemy: {fileID: 0}
-  waveOneDelayOne: 0
-  waveOneSpawnTwo: 0
-  waveOneSpawnTwoDelay: 0
-  waveOneSpawnTwoEnemy: {fileID: 0}
-  waveOneDelayTwo: 0
-  waveOneSpawnThree: 0
-  waveOneSpawnThreeDelay: 0
-  waveOneSpawnThreeEnemy: {fileID: 0}
-  waveOneDelayThree: 0
-  waveTwoDelayStart: 0
-  waveTwoSpawnOne: 0
-  waveTwoSpawnOneDelay: 0
-  waveTwoSpawnOneEnemy: {fileID: 0}
-  waveTwoDelayOne: 0
-  waveTwoSpawnTwo: 0
-  waveTwoSpawnTwoDelay: 0
-  waveTwoSpawnTwoEnemy: {fileID: 0}
-  waveTwoDelayTwo: 0
-  waveTwoSpawnThree: 0
-  waveTwoSpawnThreeDelay: 0
-  waveTwoSpawnThreeEnemy: {fileID: 0}
-  waveTwoDelayThree: 0
+  timeBeforeFirstWaveSpawns: 0
+  amountOfEnemiesInFirstPartOfWave: 0
+  timeBetweenEachEnemySpawnOne: 0
+  firstEnemySpawned: {fileID: 0}
+  timeBeforeNextEnemiesSpawnOne: 0
+  amountOfEnemiesInSecondPartOfWave: 0
+  timeBetweenEachEnemySpawnTwo: 0
+  secondEnemySpawned: {fileID: 0}
+  timeBeforeNextEnemiesSpawnTwo: 0
+  amountOfEnemiesInThirdPartOfWave: 0
+  timeBetweenEachEnemySpawnThree: 0
+  thirdEnemySpawned: {fileID: 0}
+  timeBeforeSecondWaveSpawns: 0
+  amountOfEnemiesInFirstPartOfSecondWave: 0
+  timeBetweenEachEnemySpawnFour: 0
+  fourthEnemySpawned: {fileID: 0}
+  timeBeforeNextEnemiesSpawnThree: 0
+  amountOfEnemiesInSecondPartOfSecondWave: 0
+  timeBetweenEachEnemySpawnFive: 0
+  fifthEnemySpawned: {fileID: 0}
+  timeBeforeNextEnemiesSpawnFour: 0
+  amountOfEnemiesInThirdPartOfSecondWave: 0
+  timeBetweenEachEnemySpawnSix: 0
+  sixthEnemySpawned: {fileID: 0}
   enemiesAlive: 15
 --- !u!114 &333132575
 MonoBehaviour:
@@ -7212,7 +7209,7 @@ Transform:
   m_GameObject: {fileID: 959723410}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.43, y: 6.38, z: 0}
+  m_LocalPosition: {x: -1.43, y: 5.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13145,7 +13142,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8199460626650913956, guid: 623cb380575e79d409ace99e78068757, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.33
+      value: 0.73
       objectReference: {fileID: 0}
     - target: {fileID: 8199460626650913956, guid: 623cb380575e79d409ace99e78068757, type: 3}
       propertyPath: m_LocalPosition.z
@@ -16254,7 +16251,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8199460626650913956, guid: 623cb380575e79d409ace99e78068757, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.33
+      value: 0.73
       objectReference: {fileID: 0}
     - target: {fileID: 8199460626650913956, guid: 623cb380575e79d409ace99e78068757, type: 3}
       propertyPath: m_LocalPosition.z
