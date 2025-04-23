@@ -22,6 +22,8 @@ TagManager:
   - movementPoint11
   - movementPoint12
   - movementPoint13
+  - Dead
+
   layers:
   - Default
   - TransparentFX
