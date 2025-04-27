@@ -108,7 +108,7 @@ MonoBehaviour:
   isPlaced: 1
   damage: 5
   attackCooldown: 1
-  upgradeMultiplier: 2
+  upgradeMultiplier: 1
   upgraded: 0
   upgradeSound: {fileID: 8300000, guid: 26a09d5ac58764046b0b1da7949967cc, type: 3}
 --- !u!95 &8320422097844952942
