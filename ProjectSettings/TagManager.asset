@@ -23,7 +23,12 @@ TagManager:
   - movementPoint12
   - movementPoint13
   - Dead
-
+  - movementPoint14
+  - movementPoint15
+  - movementPoint16
+  - movementPoint17
+  - movementPoint18
+  - movementPoint19
   layers:
   - Default
   - TransparentFX
@@ -59,8 +64,5 @@ TagManager:
   - 
   m_SortingLayers:
   - name: Default
-    uniqueID: 0
-    locked: 0
-  - name: Tiles
     uniqueID: 0
     locked: 0
