@@ -9,10 +9,13 @@ public class Dandelion : BaseCreature
     public int upgradeMultiplier = 2;
     public bool upgraded = false;
     Animator m_Animator;
+    AudioSource audioSource;
+    [SerializeField] private AudioClip upgradeSound;
 
     private void Start()
     {
         m_Animator = gameObject.GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
     protected override IEnumerator Attack(GameObject target)
     {
@@ -37,6 +40,8 @@ public class Dandelion : BaseCreature
         if (upgraded == false)
         {
             Debug.Log("UpgradeWorked");
+            audioSource.PlayOneShot(upgradeSound, 1F);
+            //BUFFER TO ACTUAL UPGRADE PART
             damage = damage * upgradeMultiplier;
             attackCooldown = attackCooldown / upgradeMultiplier;
             speed = speed * upgradeMultiplier;

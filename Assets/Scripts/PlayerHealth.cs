@@ -8,6 +8,8 @@ public class PlayerHealth : MonoBehaviour
 
     public int currentHealth;
     [SerializeField] private TMP_Text healthText;
+    AudioSource audioSource;
+    [SerializeField] private AudioClip damaged;
 
     private void Awake()
     {
@@ -24,6 +26,7 @@ public class PlayerHealth : MonoBehaviour
             currentHealth = 10;
         }
         healthText.text = "Health: " + currentHealth;
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void PlayerTakeDamage(int amount)
@@ -31,6 +34,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth -= amount;
         Debug.Log("Player took damage! Health is now: " + currentHealth);
         healthText.text = "Health: " + currentHealth;
+        audioSource.PlayOneShot(damaged, 1F);
 
         if (currentHealth <= 0)
         {
