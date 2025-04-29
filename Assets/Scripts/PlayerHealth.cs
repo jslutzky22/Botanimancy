@@ -34,7 +34,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth -= amount;
         Debug.Log("Player took damage! Health is now: " + currentHealth);
         healthText.text = "Health: " + currentHealth;
-        audioSource.PlayOneShot(damaged, 1F);
+        //audioSource.PlayOneShot(damaged, 1F);
 
         if (currentHealth <= 0)
         {
