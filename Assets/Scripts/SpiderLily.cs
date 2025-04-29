@@ -10,6 +10,7 @@ public class SpiderLily : BaseCreature
     public int meleeDamage = 10;
     public int rangedDamage = 5;
     public float attackCooldown = 1.5f;
+    public bool upgraded = false;
 
     protected override IEnumerator Attack(GameObject target)
     {
@@ -37,5 +38,15 @@ public class SpiderLily : BaseCreature
 
         yield return new WaitForSeconds(attackCooldown);
         isAttacking = false;
+    }
+
+    public void upgrade()
+    {
+        if (upgraded == false)
+        {
+            gameObject.transform.localScale = Vector3.one * 2;
+            upgraded = true;
+        }
+
     }
 }
