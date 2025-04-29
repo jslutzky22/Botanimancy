@@ -99,9 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20a8a0cdeb9cd694299f6a8c6de2c417, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 10
+  enemyHealth: 100
   enemySpeed: 3
   playerScript: {fileID: 0}
+  enemySpawner: {fileID: 0}
   damaged: {fileID: 8300000, guid: 4c39c1d0466f51242a2bd28eb4f9ff59, type: 3}
 --- !u!95 &2609645640343821196
 Animator:

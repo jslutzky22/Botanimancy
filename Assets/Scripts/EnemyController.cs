@@ -342,6 +342,18 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    public void DandelionSlow()
+    {
+        enemySpeed = enemySpeed / 2;
+        StartCoroutine(SlowReturn());
+    }
+
+    IEnumerator SlowReturn()
+    {
+        yield return new WaitForSecondsRealtime(1);
+        enemySpeed = enemySpeed * 2;
+    }
+
     public void perish()
     {
         Debug.Log("Perished");
