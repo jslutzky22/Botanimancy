@@ -39,7 +39,7 @@ public class Dandelion : BaseCreature
     {
         if (upgraded == false)
         {
-            Debug.Log("UpgradeWorked");
+            //Debug.Log("UpgradeWorked");
             audioSource.PlayOneShot(upgradeSound, 1F);
             //BUFFER TO ACTUAL UPGRADE PART
             damage = damage * upgradeMultiplier;
