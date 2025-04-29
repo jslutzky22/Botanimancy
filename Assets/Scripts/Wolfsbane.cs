@@ -41,9 +41,9 @@ public class Wolfsbane : BaseCreature
             Debug.Log("UpgradeWorked");
             audioSource.PlayOneShot(upgradeSound, 1F);
             damage = damage * upgradeMultiplier;
-            attackCooldown = attackCooldown / upgradeMultiplier;
-            speed = speed * upgradeMultiplier;
-            leashRange = leashRange * upgradeMultiplier;
+            //attackCooldown = attackCooldown / upgradeMultiplier;
+            //speed = speed * upgradeMultiplier;
+            //leashRange = leashRange * upgradeMultiplier;
             gameObject.transform.localScale = Vector3.one * upgradeMultiplier;
             upgraded = true;
         }
