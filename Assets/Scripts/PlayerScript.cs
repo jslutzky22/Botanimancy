@@ -185,6 +185,17 @@ public class PlayerScript : MonoBehaviour
                                 towerSelected = 0;
                             }
                         }
+                        if (hit.collider.tag == "Spider")
+                        {
+                            //Debug.Log("FoundLion");
+                            if (hit.transform.gameObject.GetComponent<SpiderLily>().upgraded == false)
+                            {
+                                //Debug.Log("LionUpgrading");
+                                hit.transform.gameObject.GetComponent<SpiderLily>().upgrade();
+                                plantFood -= 10;
+                                towerSelected = 0;
+                            }
+                        }
                         //hit.transform.gameObject.GetComponent<Wolfsbane>().upgraded = false;
 
                             // hit.transform.gameObject.GetComponent<Wolfsbane>().upgrade();
