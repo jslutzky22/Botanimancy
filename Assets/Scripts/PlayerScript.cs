@@ -118,11 +118,37 @@ public class PlayerScript : MonoBehaviour
                 Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Ray rayOrigin = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit2D hit = Physics2D.Raycast(rayOrigin.origin, rayOrigin.direction);
-                Debug.Log("LeftClicked");
+                //Debug.Log("LeftClicked");
                 if (hit.collider == null)
                 {
                     plantFood -= 5;
                     Instantiate(TowerTwo, cursorPos, Quaternion.identity);
+                }
+                towerSelected = 0;
+            }
+            if (towerSelected == 3 && plantFood >= 5)
+            {
+                Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Ray rayOrigin = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit2D hit = Physics2D.Raycast(rayOrigin.origin, rayOrigin.direction);
+                //Debug.Log("LeftClicked");
+                if (hit.collider == null)
+                {
+                    plantFood -= 5;
+                    Instantiate(TowerThree, cursorPos, Quaternion.identity);
+                }
+                towerSelected = 0;
+            }
+            if (towerSelected == 4 && plantFood >= 5)
+            {
+                Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Ray rayOrigin = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit2D hit = Physics2D.Raycast(rayOrigin.origin, rayOrigin.direction);
+                //Debug.Log("LeftClicked");
+                if (hit.collider == null)
+                {
+                    plantFood -= 5;
+                    Instantiate(TowerFour, cursorPos, Quaternion.identity);
                 }
                 towerSelected = 0;
             }
@@ -137,10 +163,10 @@ public class PlayerScript : MonoBehaviour
                 //{
                     if (hit.collider != null)
                     {
-                        Debug.Log("Raycast Firing");
+                       // Debug.Log("Raycast Firing");
                         if (hit.collider.tag == "Wolf")
                          {
-                        Debug.Log("Raycast Found wolf");
+                       // Debug.Log("Raycast Found wolf");
                             if (hit.transform.gameObject.GetComponent<Wolfsbane>().upgraded == false)
                          {
                             hit.transform.gameObject.GetComponent<Wolfsbane>().upgrade();
@@ -150,10 +176,10 @@ public class PlayerScript : MonoBehaviour
                         }
                         if (hit.collider.tag == "Lion")
                         {
-                            Debug.Log("FoundLion");
+                            //Debug.Log("FoundLion");
                             if (hit.transform.gameObject.GetComponent<Dandelion>().upgraded == false)
                             {
-                                Debug.Log("LionUpgrading");
+                                //Debug.Log("LionUpgrading");
                                 hit.transform.gameObject.GetComponent<Dandelion>().upgrade();
                                 plantFood -= 10;
                                 towerSelected = 0;
@@ -182,7 +208,7 @@ public class PlayerScript : MonoBehaviour
         if (context.performed)
         {
             towerSelected = 0;
-            Debug.Log("RightClicked");
+            //Debug.Log("RightClicked");
         }
     }
 
