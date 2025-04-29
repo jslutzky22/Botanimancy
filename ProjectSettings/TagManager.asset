@@ -29,6 +29,8 @@ TagManager:
   - movementPoint17
   - movementPoint18
   - movementPoint19
+  - Obstacle
+  - Spider
   layers:
   - Default
   - TransparentFX
