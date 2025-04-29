@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
@@ -29,6 +30,8 @@ public class EnemyController : MonoBehaviour
 
     AudioSource audioSource;
     [SerializeField] private AudioClip damaged;
+    private bool isDead = false;
+    Animator m_Animator;
 
     void Awake()
     {
@@ -92,11 +95,16 @@ public class EnemyController : MonoBehaviour
 
         StartCoroutine(EnemyMovement());
     }
+    private void Start()
+    {
+        m_Animator = gameObject.GetComponent<Animator>();
+    }
 
     IEnumerator EnemyMovement()
     {
         while (enemyHealth > 0 && movementProgress < 10)
         {
+            if (isDead) yield break;
             if (movementPoint1.transform.position.x < transform.position.x)
             {
                 while (transform.position.x > movementPoint1.transform.position.x && movementProgress == 0 && enemyHealth > 0)
@@ -112,6 +120,7 @@ public class EnemyController : MonoBehaviour
             }
             else if (movementPoint1.transform.position.x > transform.position.x)
             {
+                if (isDead) yield break;
                 while (transform.position.x < movementPoint1.transform.position.x && movementProgress == 0 && enemyHealth > 0)
                 {
                     transform.position += new Vector3((enemySpeed / 100), 0, 0);
@@ -125,6 +134,7 @@ public class EnemyController : MonoBehaviour
             }
             else if (movementPoint1.transform.position.y > transform.position.y)
             {
+                if (isDead) yield break;
                 while (transform.position.y < movementPoint1.transform.position.y && movementProgress == 0 && enemyHealth > 0)
                 {
                     transform.position += new Vector3(0, (enemySpeed / 100), 0);
@@ -138,6 +148,7 @@ public class EnemyController : MonoBehaviour
             }
             else if (movementPoint1.transform.position.y < transform.position.y)
             {
+                if (isDead) yield break;
                 while (transform.position.y > movementPoint1.transform.position.y && movementProgress == 0 && enemyHealth > 0)
                 {
                     transform.position -= new Vector3(0, (enemySpeed / 100), 0);
@@ -150,8 +161,9 @@ public class EnemyController : MonoBehaviour
                 movementProgress++;
             }
 
-            if (movementPoint2.transform.position.x < transform.position.x && movementPoint2 != null)
+            if (movementPoint2 != null && movementPoint2.transform.position.x < transform.position.x)
             {
+                if (isDead) yield break;
                 while (transform.position.x > movementPoint2.transform.position.x && movementProgress == 1 && enemyHealth > 0)
                 {
                     transform.position -= new Vector3((enemySpeed / 100), 0, 0);
@@ -163,8 +175,9 @@ public class EnemyController : MonoBehaviour
                 }
                 movementProgress++;
             }
-            else if (movementPoint2.transform.position.x > transform.position.x && movementPoint2 != null)
+            else if (movementPoint2 != null && movementPoint2.transform.position.x > transform.position.x)
             {
+                if (isDead) yield break;
                 while (transform.position.x < movementPoint2.transform.position.x && movementProgress == 1 && enemyHealth > 0)
                 {
                     transform.position += new Vector3((enemySpeed / 100), 0, 0);
@@ -176,8 +189,9 @@ public class EnemyController : MonoBehaviour
                 }
                 movementProgress++;
             }
-            else if (movementPoint2.transform.position.y > transform.position.y && movementPoint2 != null)
+            else if (movementPoint2 != null && movementPoint2.transform.position.y > transform.position.y)
             {
+                if (isDead) yield break;
                 while (transform.position.y < movementPoint2.transform.position.y && movementProgress == 1 && enemyHealth > 0)
                 {
                     transform.position += new Vector3(0, (enemySpeed / 100), 0);
@@ -189,8 +203,9 @@ public class EnemyController : MonoBehaviour
                 }
                 movementProgress++;
             }
-            else if (movementPoint2.transform.position.y < transform.position.y && movementPoint2 != null)
+            else if (movementPoint2 != null && movementPoint2.transform.position.y < transform.position.y)
             {
+                if (isDead) yield break;
                 while (transform.position.y > movementPoint2.transform.position.y && movementProgress == 1 && enemyHealth > 0)
                 {
                     transform.position -= new Vector3(0, (enemySpeed / 100), 0);
@@ -203,8 +218,9 @@ public class EnemyController : MonoBehaviour
                 movementProgress++;
             }
 
-            if (movementPoint3.transform.position.x < transform.position.x && movementPoint3 != null)
+            if (movementPoint3 != null && movementPoint3.transform.position.x < transform.position.x)
             {
+                if (isDead) yield break;
                 while (transform.position.x > movementPoint3.transform.position.x && movementProgress == 2 && enemyHealth > 0)
                 {
                     transform.position -= new Vector3((enemySpeed / 100), 0, 0);
@@ -216,8 +232,9 @@ public class EnemyController : MonoBehaviour
                 }
                 movementProgress++;
             }
-            else if (movementPoint3.transform.position.x > transform.position.x && movementPoint3 != null)
+            else if (movementPoint3 != null && movementPoint3.transform.position.x > transform.position.x)
             {
+                if (isDead) yield break;
                 while (transform.position.x < movementPoint3.transform.position.x && movementProgress == 2 && enemyHealth > 0)
                 {
                     transform.position += new Vector3((enemySpeed / 100), 0, 0);
@@ -229,8 +246,9 @@ public class EnemyController : MonoBehaviour
                 }
                 movementProgress++;
             }
-            else if (movementPoint3.transform.position.y > transform.position.y && movementPoint3 != null)
+            else if (movementPoint3 != null && movementPoint3.transform.position.y > transform.position.y)
             {
+                if (isDead) yield break;
                 while (transform.position.y < movementPoint3.transform.position.y && movementProgress == 2 && enemyHealth > 0)
                 {
                     transform.position += new Vector3(0, (enemySpeed / 100), 0);
@@ -242,8 +260,9 @@ public class EnemyController : MonoBehaviour
                 }
                 movementProgress++;
             }
-            else if (movementPoint3.transform.position.y < transform.position.y && movementPoint3 != null)
+            else if (movementPoint3 != null && movementPoint3.transform.position.y < transform.position.y)
             {
+                if (isDead) yield break;
                 while (transform.position.y > movementPoint3.transform.position.y && movementProgress == 2 && enemyHealth > 0)
                 {
                     transform.position -= new Vector3(0, (enemySpeed / 100), 0);
@@ -257,8 +276,9 @@ public class EnemyController : MonoBehaviour
             }
 
 
-            if (movementPoint4.transform.position.x < transform.position.x && movementPoint4 != null)
+            if (movementPoint4 != null && movementPoint4.transform.position.x < transform.position.x)
             {
+                if (isDead) yield break;
                 while (transform.position.x > movementPoint4.transform.position.x && movementProgress == 3 && enemyHealth > 0)
                 {
                     transform.position -= new Vector3((enemySpeed / 100), 0, 0);
@@ -270,8 +290,9 @@ public class EnemyController : MonoBehaviour
                 }
                 movementProgress++;
             }
-            else if (movementPoint4.transform.position.x > transform.position.x && movementPoint4 != null)
+            else if (movementPoint4 != null && movementPoint4.transform.position.x > transform.position.x)
             {
+                if (isDead) yield break;
                 while (transform.position.x < movementPoint4.transform.position.x && movementProgress == 3 && enemyHealth > 0)
                 {
                     transform.position += new Vector3((enemySpeed / 100), 0, 0);
@@ -283,8 +304,9 @@ public class EnemyController : MonoBehaviour
                 }
                 movementProgress++;
             }
-            else if (movementPoint4.transform.position.y > transform.position.y && movementPoint4 != null)
+            else if (movementPoint4 != null && movementPoint4.transform.position.y > transform.position.y)
             {
+                if (isDead) yield break;
                 while (transform.position.y < movementPoint4.transform.position.y && movementProgress == 3 && enemyHealth > 0)
                 {
                     transform.position += new Vector3(0, (enemySpeed / 100), 0);
@@ -296,8 +318,9 @@ public class EnemyController : MonoBehaviour
                 }
                 movementProgress++;
             }
-            else if (movementPoint4.transform.position.y < transform.position.y && movementPoint4 != null)
+            else if (movementPoint4 != null && movementPoint4.transform.position.y < transform.position.y)
             {
+                if (isDead) yield break;
                 while (transform.position.y > movementPoint4.transform.position.y && movementProgress == 3 && enemyHealth > 0)
                 {
                     transform.position -= new Vector3(0, (enemySpeed / 100), 0);
@@ -310,8 +333,9 @@ public class EnemyController : MonoBehaviour
                 movementProgress++;
             }
 
-            if (movementPoint5.transform.position.x < transform.position.x && movementPoint5 != null)
+            if (movementPoint5 != null && movementPoint5.transform.position.x < transform.position.x)
             {
+                if (isDead) yield break;
                 while (transform.position.x > movementPoint5.transform.position.x && movementProgress == 4 && enemyHealth > 0)
                 {
                     transform.position -= new Vector3((enemySpeed / 100), 0, 0);
@@ -323,8 +347,9 @@ public class EnemyController : MonoBehaviour
                 }
                 movementProgress++;
             }
-            else if (movementPoint5.transform.position.x > transform.position.x && movementPoint5 != null)
+            else if (movementPoint5 != null && movementPoint5.transform.position.x > transform.position.x)
             {
+                if (isDead) yield break;
                 while (transform.position.x < movementPoint5.transform.position.x && movementProgress == 4 && enemyHealth > 0)
                 {
                     transform.position += new Vector3((enemySpeed / 100), 0, 0);
@@ -336,8 +361,9 @@ public class EnemyController : MonoBehaviour
                 }
                 movementProgress++;
             }
-            else if (movementPoint5.transform.position.y > transform.position.y && movementPoint5 != null)
+            else if (movementPoint5 != null && movementPoint5.transform.position.y > transform.position.y)
             {
+                if (isDead) yield break;
                 while (transform.position.y < movementPoint5.transform.position.y && movementProgress == 4 && enemyHealth > 0)
                 {
                     transform.position += new Vector3(0, (enemySpeed / 100), 0);
@@ -349,8 +375,9 @@ public class EnemyController : MonoBehaviour
                 }
                 movementProgress++;
             }
-            else if (movementPoint5.transform.position.y < transform.position.y && movementPoint5 != null)
+            else if (movementPoint5 != null && movementPoint5.transform.position.y < transform.position.y)
             {
+                if (isDead) yield break;
                 while (transform.position.y > movementPoint5.transform.position.y && movementProgress == 4 && enemyHealth > 0)
                 {
                     transform.position -= new Vector3(0, (enemySpeed / 100), 0);
@@ -364,8 +391,9 @@ public class EnemyController : MonoBehaviour
             }
 
 
-            if (movementPoint6.transform.position.x < transform.position.x && movementPoint6 != null)
+            if (movementPoint6 != null && movementPoint6.transform.position.x < transform.position.x)
             {
+                if (isDead) yield break;
                 while (transform.position.x > movementPoint6.transform.position.x && movementProgress == 5 && enemyHealth > 0)
                 {
                     transform.position -= new Vector3((enemySpeed / 100), 0, 0);
@@ -377,8 +405,9 @@ public class EnemyController : MonoBehaviour
                 }
                 movementProgress++;
             }
-            else if (movementPoint6.transform.position.x > transform.position.x && movementPoint6 != null)
+            else if (movementPoint6 != null && movementPoint6.transform.position.x > transform.position.x)
             {
+                if (isDead) yield break;
                 while (transform.position.x < movementPoint6.transform.position.x && movementProgress == 5 && enemyHealth > 0)
                 {
                     transform.position += new Vector3((enemySpeed / 100), 0, 0);
@@ -390,8 +419,9 @@ public class EnemyController : MonoBehaviour
                 }
                 movementProgress++;
             }
-            else if (movementPoint6.transform.position.y > transform.position.y && movementPoint6 != null)
+            else if (movementPoint6 != null && movementPoint6.transform.position.y > transform.position.y)
             {
+                if (isDead) yield break;
                 while (transform.position.y < movementPoint6.transform.position.y && movementProgress == 5 && enemyHealth > 0)
                 {
                     transform.position += new Vector3(0, (enemySpeed / 100), 0);
@@ -403,8 +433,9 @@ public class EnemyController : MonoBehaviour
                 }
                 movementProgress++;
             }
-            else if (movementPoint6.transform.position.y < transform.position.y && movementPoint6 != null)
+            else if (movementPoint6 != null && movementPoint6.transform.position.y < transform.position.y)
             {
+                if (isDead) yield break;
                 while (transform.position.y > movementPoint6.transform.position.y && movementProgress == 5 && enemyHealth > 0)
                 {
                     transform.position -= new Vector3(0, (enemySpeed / 100), 0);
@@ -418,8 +449,9 @@ public class EnemyController : MonoBehaviour
             }
 
 
-            if (movementPoint7.transform.position.x < transform.position.x && movementPoint7 != null)
+            if (movementPoint7 != null && movementPoint7.transform.position.x < transform.position.x)
             {
+                if (isDead) yield break;
                 while (transform.position.x > movementPoint7.transform.position.x && movementProgress == 6 && enemyHealth > 0)
                 {
                     transform.position -= new Vector3((enemySpeed / 100), 0, 0);
@@ -431,8 +463,9 @@ public class EnemyController : MonoBehaviour
                 }
                 movementProgress++;
             }
-            else if (movementPoint7.transform.position.x > transform.position.x && movementPoint7 != null)
+            else if (movementPoint7 != null && movementPoint7.transform.position.x > transform.position.x)
             {
+                if (isDead) yield break;
                 while (transform.position.x < movementPoint7.transform.position.x && movementProgress == 6 && enemyHealth > 0)
                 {
                     transform.position += new Vector3((enemySpeed / 100), 0, 0);
@@ -444,8 +477,9 @@ public class EnemyController : MonoBehaviour
                 }
                 movementProgress++;
             }
-            else if (movementPoint7.transform.position.y > transform.position.y && movementPoint7 != null)
+            else if (movementPoint7 != null && movementPoint7.transform.position.y > transform.position.y)
             {
+                if (isDead) yield break;
                 while (transform.position.y < movementPoint7.transform.position.y && movementProgress == 6 && enemyHealth > 0)
                 {
                     transform.position += new Vector3(0, (enemySpeed / 100), 0);
@@ -457,8 +491,9 @@ public class EnemyController : MonoBehaviour
                 }
                 movementProgress++;
             }
-            else if (movementPoint7.transform.position.y < transform.position.y && movementPoint7 != null)
+            else if (movementPoint7 != null && movementPoint7.transform.position.y < transform.position.y)
             {
+                if (isDead) yield break;
                 while (transform.position.y > movementPoint7.transform.position.y && movementProgress == 6 && enemyHealth > 0)
                 {
                     transform.position -= new Vector3(0, (enemySpeed / 100), 0);
@@ -472,8 +507,9 @@ public class EnemyController : MonoBehaviour
             }
 
 
-            if (movementPoint8.transform.position.x < transform.position.x && movementPoint8 != null)
+            if (movementPoint8 != null && movementPoint8.transform.position.x < transform.position.x)
             {
+                if (isDead) yield break;
                 while (transform.position.x > movementPoint8.transform.position.x && movementProgress == 7 && enemyHealth > 0)
                 {
                     transform.position -= new Vector3((enemySpeed / 100), 0, 0);
@@ -485,8 +521,9 @@ public class EnemyController : MonoBehaviour
                 }
                 movementProgress++;
             }
-            else if (movementPoint8.transform.position.x > transform.position.x && movementPoint8 != null)
+            else if (movementPoint8 != null && movementPoint8.transform.position.x > transform.position.x)
             {
+                if (isDead) yield break;
                 while (transform.position.x < movementPoint8.transform.position.x && movementProgress == 7 && enemyHealth > 0)
                 {
                     transform.position += new Vector3((enemySpeed / 100), 0, 0);
@@ -498,8 +535,9 @@ public class EnemyController : MonoBehaviour
                 }
                 movementProgress++;
             }
-            else if (movementPoint8.transform.position.y > transform.position.y && movementPoint8 != null)
+            else if (movementPoint8 != null && movementPoint8.transform.position.y > transform.position.y)
             {
+                if (isDead) yield break;
                 while (transform.position.y < movementPoint8.transform.position.y && movementProgress == 7 && enemyHealth > 0)
                 {
                     transform.position += new Vector3(0, (enemySpeed / 100), 0);
@@ -511,8 +549,9 @@ public class EnemyController : MonoBehaviour
                 }
                 movementProgress++;
             }
-            else if (movementPoint8.transform.position.y < transform.position.y && movementPoint8 != null)
+            else if (movementPoint8 != null && movementPoint8.transform.position.y < transform.position.y)
             {
+                if (isDead) yield break;
                 while (transform.position.y > movementPoint8.transform.position.y && movementProgress == 7 && enemyHealth > 0)
                 {
                     transform.position -= new Vector3(0, (enemySpeed / 100), 0);
@@ -526,8 +565,9 @@ public class EnemyController : MonoBehaviour
             }
 
 
-            if (movementPoint9.transform.position.x < transform.position.x && movementPoint9 != null)
+            if (movementPoint9 != null && movementPoint9.transform.position.x < transform.position.x)
             {
+                if (isDead) yield break;
                 while (transform.position.x > movementPoint9.transform.position.x && movementProgress == 8 && enemyHealth > 0)
                 {
                     transform.position -= new Vector3((enemySpeed / 100), 0, 0);
@@ -539,8 +579,9 @@ public class EnemyController : MonoBehaviour
                 }
                 movementProgress++;
             }
-            else if (movementPoint9.transform.position.x > transform.position.x && movementPoint9 != null)
+            else if (movementPoint9 != null && movementPoint9.transform.position.x > transform.position.x)
             {
+                if (isDead) yield break;
                 while (transform.position.x < movementPoint9.transform.position.x && movementProgress == 8 && enemyHealth > 0)
                 {
                     transform.position += new Vector3((enemySpeed / 100), 0, 0);
@@ -552,8 +593,9 @@ public class EnemyController : MonoBehaviour
                 }
                 movementProgress++;
             }
-            else if (movementPoint9.transform.position.y > transform.position.y && movementPoint9 != null)
+            else if (movementPoint9 != null && movementPoint9.transform.position.y > transform.position.y)
             {
+                if (isDead) yield break;
                 while (transform.position.y < movementPoint9.transform.position.y && movementProgress == 8 && enemyHealth > 0)
                 {
                     transform.position += new Vector3(0, (enemySpeed / 100), 0);
@@ -565,8 +607,9 @@ public class EnemyController : MonoBehaviour
                 }
                 movementProgress++;
             }
-            else if (movementPoint9.transform.position.y < transform.position.y && movementPoint9 != null)
+            else if (movementPoint9 != null && movementPoint9.transform.position.y < transform.position.y)
             {
+                if (isDead) yield break;
                 while (transform.position.y > movementPoint9.transform.position.y && movementProgress == 8 && enemyHealth > 0)
                 {
                     transform.position -= new Vector3(0, (enemySpeed / 100), 0);
@@ -580,8 +623,9 @@ public class EnemyController : MonoBehaviour
             }
 
 
-            if (movementPoint10.transform.position.x < transform.position.x && movementPoint10 != null)
+            if (movementPoint10 != null && movementPoint10.transform.position.x < transform.position.x)
             {
+                if (isDead) yield break;
                 while (transform.position.x > movementPoint10.transform.position.x && movementProgress == 9 && enemyHealth > 0)
                 {
                     transform.position -= new Vector3((enemySpeed / 100), 0, 0);
@@ -593,8 +637,10 @@ public class EnemyController : MonoBehaviour
                 }
                 movementProgress++;
             }
-            else if (movementPoint10.transform.position.x > transform.position.x && movementPoint10 != null)
+
+            else if (movementPoint10 != null && movementPoint10.transform.position.x > transform.position.x)
             {
+                if (isDead) yield break;
                 while (transform.position.x < movementPoint10.transform.position.x && movementProgress == 9 && enemyHealth > 0)
                 {
                     transform.position += new Vector3((enemySpeed / 100), 0, 0);
@@ -606,8 +652,10 @@ public class EnemyController : MonoBehaviour
                 }
                 movementProgress++;
             }
-            else if (movementPoint10.transform.position.y > transform.position.y && movementPoint10 != null)
+
+            else if (movementPoint10 != null && movementPoint10.transform.position.y > transform.position.y)
             {
+                if (isDead) yield break;
                 while (transform.position.y < movementPoint10.transform.position.y && movementProgress == 9 && enemyHealth > 0)
                 {
                     transform.position += new Vector3(0, (enemySpeed / 100), 0);
@@ -619,8 +667,10 @@ public class EnemyController : MonoBehaviour
                 }
                 movementProgress++;
             }
-            else if (movementPoint10.transform.position.y < transform.position.y && movementPoint10 != null)
+
+            else if (movementPoint10 != null && movementPoint10.transform.position.y < transform.position.y)
             {
+                if (isDead) yield break;
                 while (transform.position.y > movementPoint10.transform.position.y && movementProgress == 9 && enemyHealth > 0)
                 {
                     transform.position -= new Vector3(0, (enemySpeed / 100), 0);
@@ -634,8 +684,9 @@ public class EnemyController : MonoBehaviour
             }
 
 
-            if (movementPoint11.transform.position.x < transform.position.x && movementPoint11 != null)
+            if (movementPoint11 != null && movementPoint11.transform.position.x < transform.position.x)
             {
+                if (isDead) yield break;
                 while (transform.position.x > movementPoint11.transform.position.x && movementProgress == 10 && enemyHealth > 0)
                 {
                     transform.position -= new Vector3((enemySpeed / 100), 0, 0);
@@ -647,8 +698,9 @@ public class EnemyController : MonoBehaviour
                 }
                 movementProgress++;
             }
-            else if (movementPoint11.transform.position.x > transform.position.x && movementPoint11 != null)
+            else if (movementPoint11 != null && movementPoint11.transform.position.x > transform.position.x)
             {
+                if (isDead) yield break;
                 while (transform.position.x < movementPoint11.transform.position.x && movementProgress == 10 && enemyHealth > 0)
                 {
                     transform.position += new Vector3((enemySpeed / 100), 0, 0);
@@ -660,8 +712,9 @@ public class EnemyController : MonoBehaviour
                 }
                 movementProgress++;
             }
-            else if (movementPoint11.transform.position.y > transform.position.y && movementPoint11 != null)
+            else if (movementPoint11 != null && movementPoint11.transform.position.y > transform.position.y)
             {
+                if (isDead) yield break;
                 while (transform.position.y < movementPoint11.transform.position.y && movementProgress == 10 && enemyHealth > 0)
                 {
                     transform.position += new Vector3(0, (enemySpeed / 100), 0);
@@ -673,8 +726,9 @@ public class EnemyController : MonoBehaviour
                 }
                 movementProgress++;
             }
-            else if (movementPoint11.transform.position.y < transform.position.y && movementPoint11 != null)
+            else if (movementPoint11 != null && movementPoint11.transform.position.y < transform.position.y)
             {
+                if (isDead) yield break;
                 while (transform.position.y > movementPoint11.transform.position.y && movementProgress == 10 && enemyHealth > 0)
                 {
                     transform.position -= new Vector3(0, (enemySpeed / 100), 0);
@@ -688,8 +742,9 @@ public class EnemyController : MonoBehaviour
             }
 
 
-            if (movementPoint12.transform.position.x < transform.position.x && movementPoint12 != null)
+            if (movementPoint12 != null && movementPoint12.transform.position.x < transform.position.x)
             {
+                if (isDead) yield break;
                 while (transform.position.x > movementPoint12.transform.position.x && movementProgress == 11 && enemyHealth > 0)
                 {
                     transform.position -= new Vector3((enemySpeed / 100), 0, 0);
@@ -701,8 +756,9 @@ public class EnemyController : MonoBehaviour
                 }
                 movementProgress++;
             }
-            else if (movementPoint12.transform.position.x > transform.position.x && movementPoint12 != null)
+            else if (movementPoint12 != null && movementPoint12.transform.position.x > transform.position.x)
             {
+                if (isDead) yield break;
                 while (transform.position.x < movementPoint12.transform.position.x && movementProgress == 11 && enemyHealth > 0)
                 {
                     transform.position += new Vector3((enemySpeed / 100), 0, 0);
@@ -714,8 +770,9 @@ public class EnemyController : MonoBehaviour
                 }
                 movementProgress++;
             }
-            else if (movementPoint12.transform.position.y > transform.position.y && movementPoint12 != null)
+            else if (movementPoint12 != null && movementPoint12.transform.position.y > transform.position.y)
             {
+                if (isDead) yield break;
                 while (transform.position.y < movementPoint12.transform.position.y && movementProgress == 11 && enemyHealth > 0)
                 {
                     transform.position += new Vector3(0, (enemySpeed / 100), 0);
@@ -727,8 +784,9 @@ public class EnemyController : MonoBehaviour
                 }
                 movementProgress++;
             }
-            else if (movementPoint12.transform.position.y < transform.position.y && movementPoint12 != null)
+            else if (movementPoint12 != null && movementPoint12.transform.position.y < transform.position.y)
             {
+                if (isDead) yield break;
                 while (transform.position.y > movementPoint12.transform.position.y && movementProgress == 11 && enemyHealth > 0)
                 {
                     transform.position -= new Vector3(0, (enemySpeed / 100), 0);
@@ -742,8 +800,9 @@ public class EnemyController : MonoBehaviour
             }
 
 
-            if (movementPoint13.transform.position.x < transform.position.x && movementPoint13 != null)
+            if (movementPoint13 != null && movementPoint13.transform.position.x < transform.position.x)
             {
+                if (isDead) yield break;
                 while (transform.position.x > movementPoint13.transform.position.x && movementProgress == 12 && enemyHealth > 0)
                 {
                     transform.position -= new Vector3((enemySpeed / 100), 0, 0);
@@ -755,8 +814,9 @@ public class EnemyController : MonoBehaviour
                 }
                 movementProgress++;
             }
-            else if (movementPoint13.transform.position.x > transform.position.x && movementPoint13 != null)
+            else if (movementPoint13 != null && movementPoint13.transform.position.x > transform.position.x)
             {
+                if (isDead) yield break;
                 while (transform.position.x < movementPoint13.transform.position.x && movementProgress == 12 && enemyHealth > 0)
                 {
                     transform.position += new Vector3((enemySpeed / 100), 0, 0);
@@ -768,8 +828,9 @@ public class EnemyController : MonoBehaviour
                 }
                 movementProgress++;
             }
-            else if (movementPoint13.transform.position.y > transform.position.y && movementPoint13 != null)
+            else if (movementPoint13 != null && movementPoint13.transform.position.y > transform.position.y)
             {
+                if (isDead) yield break;
                 while (transform.position.y < movementPoint13.transform.position.y && movementProgress == 12 && enemyHealth > 0)
                 {
                     transform.position += new Vector3(0, (enemySpeed / 100), 0);
@@ -781,8 +842,9 @@ public class EnemyController : MonoBehaviour
                 }
                 movementProgress++;
             }
-            else if (movementPoint13.transform.position.y < transform.position.y && movementPoint13 != null)
+            else if (movementPoint13 != null && movementPoint13.transform.position.y < transform.position.y)
             {
+                if (isDead) yield break;
                 while (transform.position.y > movementPoint13.transform.position.y && movementProgress == 12 && enemyHealth > 0)
                 {
                     transform.position -= new Vector3(0, (enemySpeed / 100), 0);
@@ -806,6 +868,7 @@ public class EnemyController : MonoBehaviour
                 enemySpawner.enemiesAlive--;
 
                 // Destroy the enemy
+                //Debug.Log("EnemyKilledDead");
                 Destroy(this.gameObject);
             }
 
@@ -826,13 +889,27 @@ public class EnemyController : MonoBehaviour
     public void TakeDamage(int amount)
     {
         enemyHealth -= amount;
-        audioSource.PlayOneShot(damaged, 1F);
+        
+        
+        //StartCoroutine(HandleDeath());
+        audioSource.PlayOneShot(damaged, 0.5F);
         if (enemyHealth <= 0)
         {
+            isDead = true;
+            StopAllCoroutines();
             playerScript.plantFood++;
             enemySpawner.enemiesAlive--;
-            Destroy(this.gameObject);
+            Debug.Log("DestroyEnemy");
+            m_Animator.SetBool("Dead", true);
+            gameObject.tag = ("Dead");
+            //Destroy(this.gameObject);
         }
+    }
+
+    public void perish()
+    {
+        Debug.Log("Perished");
+        Destroy(this.gameObject);
     }
 
 }
