@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Sprite: {fileID: 908701259, guid: f8ea756348ecd2940be2a4099634da2a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -120,14 +120,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  speed: 1
+  speed: 5
   leashRange: 2
-  attackRange: 1
+  attackRange: 3
   isPlaced: 0
   projectilePrefab: {fileID: 7891502068269343001, guid: 39cc82b3ca2d9ec4382e23bed5d52e87, type: 3}
   projectileSpeed: 5
   slowDuration: 2
   slowAmount: 0.5
-  meleeDamage: 10
+  meleeDamage: 5
   rangedDamage: 5
   attackCooldown: 1.5
+  upgraded: 0
