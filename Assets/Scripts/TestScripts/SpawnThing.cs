@@ -11,6 +11,11 @@ public class SpawnThing : MonoBehaviour
 
     private LineRenderer lr;
     private List<Transform> lrPoints = new();
+    //public bool upgradedWolf;
+    public GameObject secondWolfsbanetower;
+    public bool upgradeSuccess;
+    public int towerType;
+    private GameObject latestSpawnedWolf;
 
     void Start()
     {
@@ -23,6 +28,7 @@ public class SpawnThing : MonoBehaviour
 
         BaseCreature creature = wolf.GetComponent<BaseCreature>();
         creature.Place(transform.position);
+        latestSpawnedWolf = wolf;
 
         //SetUpLine;
 
@@ -45,6 +51,12 @@ public class SpawnThing : MonoBehaviour
         for (int i = 0; i < lrPoints.Count; i++)
         {
             lr.SetPosition(i, lrPoints[i].position);
+        }
+        if (towerType == 1 && latestSpawnedWolf.GetComponent<Wolfsbane>().upgraded == true && upgradeSuccess == false)
+        {
+            Debug.Log("TowerUpgraded");
+            upgradeSuccess = true;
+            GameObject wolf2 = Instantiate(secondWolfsbanetower, gameObject.transform.position, Quaternion.identity);
         }
     }
 }

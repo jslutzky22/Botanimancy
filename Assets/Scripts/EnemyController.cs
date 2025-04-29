@@ -329,7 +329,7 @@ public class EnemyController : MonoBehaviour
         
         //StartCoroutine(HandleDeath());
         audioSource.PlayOneShot(damaged, 0.5F);
-        if (enemyHealth <= 0)
+        if (enemyHealth <= 0 && isDead == false)
         {
             isDead = true;
             StopAllCoroutines();
