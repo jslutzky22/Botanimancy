@@ -6,6 +6,8 @@ public class Dragonfruit : MonoBehaviour
 {
     [SerializeField] private GameObject bullet;
     [SerializeField] private Transform bulletPos;
+    [SerializeField] private Transform bulletPos2;
+    [SerializeField] private Transform bulletPos3;
     [SerializeField] private float bulletSpeed;
     private GameObject closestEnemy;
     [SerializeField] private float distanceToShoot;
@@ -73,6 +75,30 @@ public class Dragonfruit : MonoBehaviour
 
 
                 firedBullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+            }
+            if (upgraded == true)
+            {
+                Debug.Log("UpgradeShoot!");
+                if (distance < distanceToShoot)
+                {
+                    GameObject firedBullet = Instantiate(bullet, bulletPos2.position, Quaternion.identity);
+
+
+                    Vector2 direction = (closestEnemy.transform.position - bulletPos2.position).normalized;
+
+
+                    firedBullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+                }
+                if (distance < distanceToShoot)
+                {
+                    GameObject firedBullet = Instantiate(bullet, bulletPos3.position, Quaternion.identity);
+
+
+                    Vector2 direction = (closestEnemy.transform.position - bulletPos3.position).normalized;
+
+
+                    firedBullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+                }
             }
         }
         
