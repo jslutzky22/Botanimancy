@@ -196,10 +196,21 @@ public class PlayerScript : MonoBehaviour
                                 towerSelected = 0;
                             }
                         }
-                        //hit.transform.gameObject.GetComponent<Wolfsbane>().upgraded = false;
+                        if (hit.collider.tag == "Dragon")
+                        {
+                        //Debug.Log("FoundLion");
+                            if (hit.transform.gameObject.GetComponent<Dragonfruit>().upgraded == false)
+                            {
+                            //Debug.Log("LionUpgrading");
+                            hit.transform.gameObject.GetComponent<Dragonfruit>().upgrade();
+                            plantFood -= 10;
+                            towerSelected = 0;
+                            }
+                        }
+                    //hit.transform.gameObject.GetComponent<Wolfsbane>().upgraded = false;
 
-                            // hit.transform.gameObject.GetComponent<Wolfsbane>().upgrade();
-                        
+                    // hit.transform.gameObject.GetComponent<Wolfsbane>().upgrade();
+
                     }
                 // }
                 towerSelected = 0;
