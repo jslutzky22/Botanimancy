@@ -12,6 +12,7 @@ public class Dandelion : BaseCreature
     AudioSource audioSource;
     [SerializeField] private AudioClip upgradeSound;
     private bool running;
+    private BaseCreature baseCreature;
 
     private void Start()
     {
@@ -26,6 +27,7 @@ public class Dandelion : BaseCreature
         // Replace with animation or visual feedback
         //Debug.Log($"{gameObject.name} attacks {target.name} for {damage} damage!");
 
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         EnemyController enemy = target.GetComponent<EnemyController>();
         if (enemy != null)
         {
@@ -33,7 +35,10 @@ public class Dandelion : BaseCreature
             enemy.TakeDamage(damage);
             if (upgraded == true && running == false)
             {
-                enemy.DandelionSlow();
+                foreach (GameObject Enemy in enemies)
+                {
+                    Enemy.GetComponent<EnemyController>().DandelionSlow();
+                }
                 StartCoroutine(Slow());
             }
         }
@@ -62,7 +67,7 @@ public class Dandelion : BaseCreature
     IEnumerator Slow()
     {
         running = true;
-        yield return new WaitForSecondsRealtime(3);
+        yield return new WaitForSecondsRealtime(5);
         running = false;
     }
 }
