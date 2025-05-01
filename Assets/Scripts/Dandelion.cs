@@ -13,6 +13,7 @@ public class Dandelion : BaseCreature
     [SerializeField] private AudioClip upgradeSound;
     private bool running;
     private BaseCreature baseCreature;
+    [SerializeField] private float slowCooldown;
 
     private void Start()
     {
@@ -67,7 +68,7 @@ public class Dandelion : BaseCreature
     IEnumerator Slow()
     {
         running = true;
-        yield return new WaitForSecondsRealtime(5);
+        yield return new WaitForSecondsRealtime(slowCooldown);
         running = false;
     }
 }
