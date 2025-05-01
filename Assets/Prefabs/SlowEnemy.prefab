@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 170927851319249682}
   - component: {fileID: 2683808226995142304}
   - component: {fileID: -8226051109841855869}
+  - component: {fileID: 3237194534787852252}
   m_Layer: 5
   m_Name: SlowEnemy
   m_TagString: Enemy
@@ -102,6 +103,7 @@ MonoBehaviour:
   enemyHealth: 10
   enemySpeed: 1
   playerScript: {fileID: 0}
+  enemySpawner: {fileID: 0}
   damaged: {fileID: 8300000, guid: 4c39c1d0466f51242a2bd28eb4f9ff59, type: 3}
 --- !u!82 &2683808226995142304
 AudioSource:
@@ -220,3 +222,38 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!70 &3237194534787852252
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4100227788085772803}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1.3, y: 1.82}
+  m_Direction: 0
