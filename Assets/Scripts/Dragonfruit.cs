@@ -75,6 +75,7 @@ public class Dragonfruit : MonoBehaviour
 
 
                 firedBullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+                m_Animator.SetTrigger("attack");
             }
             if (upgraded == true)
             {
@@ -112,6 +113,7 @@ public class Dragonfruit : MonoBehaviour
             //Debug.Log("UpgradeWorked");
             audioSource.PlayOneShot(upgradeSound, 1F);
             //BUFFER TO ACTUAL UPGRADE PART
+            m_Animator.SetBool("hydra", true);
             gameObject.transform.localScale = Vector3.one * upgradeMultiplier;
             shotDelay = upgradedShotDelay;
             bulletSpeed = upgradeMultiplier * 10;
