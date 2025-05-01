@@ -15,6 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/ImportantScene/Level1.unity
     guid: eec1461dff44eca48a5e2bb01a5140a8
   - enabled: 1
+    path: Assets/Scenes/ImportantScene/Level2.unity
+    guid: 67bf841fd8bc11a49a78db71f85df9c6
+  - enabled: 1
+    path: Assets/Scenes/ImportantScene/Level3.unity
+    guid: d734cd17dd21be64d8f6a09786d0034d
+  - enabled: 1
     path: Assets/Scenes/ImportantScene/LoseScene.unity
     guid: d2304aff873750a488c1f8b7cc0f8a72
   - enabled: 1
