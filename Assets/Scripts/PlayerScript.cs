@@ -4,6 +4,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
@@ -19,6 +20,14 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private GameObject TowerTwo;
     [SerializeField] private GameObject TowerThree;
     [SerializeField] private GameObject TowerFour;
+
+    [SerializeField] private GameObject mouseIndicator;
+    [SerializeField] private Sprite towerOneSprite;
+    [SerializeField] private Sprite towerTwoSprite;
+    [SerializeField] private Sprite towerThreeSprite;
+    [SerializeField] private Sprite towerFourSprite;
+    [SerializeField] private Sprite towerFiveSprite;
+    [SerializeField] private bool placingTower;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +54,7 @@ public class PlayerScript : MonoBehaviour
 
             if (towerSelected == 1 && plantFood >= 5)
             {
+                mouseIndicator.GetComponent<SpriteRenderer>().sprite = towerOneSprite;
                 plantFood -= 5;
                 selectedTile.GetComponent<GreenTileScript>().towerOnTile = true;
                 Debug.Log(selectedTile);
@@ -54,25 +64,42 @@ public class PlayerScript : MonoBehaviour
             }
             else if (towerSelected == 2 && plantFood >= 5)
             {
+                mouseIndicator.GetComponent<SpriteRenderer>().sprite = towerTwoSprite;
                 plantFood -= 5;
                 selectedTile.GetComponent<GreenTileScript>().towerOnTile = true;
                 Instantiate(TowerTwo, selectedTileTransform);
             }
             else if (towerSelected == 3 && plantFood >= 5)
             {
+                mouseIndicator.GetComponent<SpriteRenderer>().sprite = towerThreeSprite;
                 plantFood -= 5;
                 selectedTile.GetComponent<GreenTileScript>().towerOnTile = true;
                 Instantiate(TowerThree, selectedTileTransform);
             }
             else if (towerSelected == 4 && plantFood >= 5)
             {
+                mouseIndicator.GetComponent<SpriteRenderer>().sprite = towerFourSprite;
                 plantFood -= 5;
                 selectedTile.GetComponent<GreenTileScript>().towerOnTile = true;
                 Instantiate(TowerFour, selectedTileTransform);
             }
+            else if (towerSelected == 5 && plantFood >= 10)
+            {
+                mouseIndicator.GetComponent<SpriteRenderer>().sprite = towerFiveSprite;
+            }
             towerSelected = 0;
             selectedTile.GetComponent<GreenTileScript>().selected = false;
             selectedTile = null;
+        }
+
+        if (placingTower == true)
+        {
+            mouseIndicator.SetActive(true);
+            mouseIndicator.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3 (0,0,10);
+        }
+        else
+        {
+            mouseIndicator.SetActive(false);
         }
     }
     public void LeftClick(InputAction.CallbackContext context)
@@ -81,6 +108,8 @@ public class PlayerScript : MonoBehaviour
         {
             if (towerSelected == 1 && plantFood >= 5)
             {
+                placingTower = true;
+                mouseIndicator.GetComponent<SpriteRenderer>().sprite = towerOneSprite;
                 Debug.Log("TowerClicked");
                 Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Ray rayOrigin = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -98,7 +127,8 @@ public class PlayerScript : MonoBehaviour
                     //Debug.Log("ShotObstacle");
                     if (hit.collider == null)
                     {
-                        plantFood -= 5;
+                    placingTower = false;
+                    plantFood -= 5;
                         Instantiate(TowerOne, cursorPos, Quaternion.identity);
                     }
                 else
@@ -120,12 +150,15 @@ public class PlayerScript : MonoBehaviour
             }
             if (towerSelected == 2 && plantFood >= 5)
             {
+                placingTower = true;
+                mouseIndicator.GetComponent<SpriteRenderer>().sprite = towerTwoSprite;
                 Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Ray rayOrigin = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit2D hit = Physics2D.Raycast(rayOrigin.origin, rayOrigin.direction);
                 //Debug.Log("LeftClicked");
                 if (hit.collider == null)
                 {
+                    placingTower = false;
                     plantFood -= 5;
                     Instantiate(TowerTwo, cursorPos, Quaternion.identity);
                 }
@@ -138,12 +171,15 @@ public class PlayerScript : MonoBehaviour
             }
             if (towerSelected == 3 && plantFood >= 5)
             {
+                placingTower = true;
+                mouseIndicator.GetComponent<SpriteRenderer>().sprite = towerThreeSprite;
                 Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Ray rayOrigin = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit2D hit = Physics2D.Raycast(rayOrigin.origin, rayOrigin.direction);
                 //Debug.Log("LeftClicked");
                 if (hit.collider == null)
                 {
+                    placingTower = false;
                     plantFood -= 5;
                     Instantiate(TowerThree, cursorPos, Quaternion.identity);
                 }
@@ -156,12 +192,15 @@ public class PlayerScript : MonoBehaviour
             }
             if (towerSelected == 4 && plantFood >= 5)
             {
+                placingTower = true;
+                mouseIndicator.GetComponent<SpriteRenderer>().sprite = towerFourSprite;
                 Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Ray rayOrigin = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit2D hit = Physics2D.Raycast(rayOrigin.origin, rayOrigin.direction);
                 //Debug.Log("LeftClicked");
                 if (hit.collider == null)
                 {
+                    placingTower = false;
                     plantFood -= 5;
                     Instantiate(TowerFour, cursorPos, Quaternion.identity);
                 }
@@ -174,6 +213,8 @@ public class PlayerScript : MonoBehaviour
             }
             if (towerSelected == 5 && plantFood >= 10)
             {
+                placingTower = true;
+                mouseIndicator.GetComponent<SpriteRenderer>().sprite = towerFiveSprite;
                 Ray rayOrigin = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit2D hit = Physics2D.Raycast(rayOrigin.origin, rayOrigin.direction);
                 //Debug.Log(hit.point);
@@ -183,12 +224,13 @@ public class PlayerScript : MonoBehaviour
                 //{
                     if (hit.collider != null)
                     {
-                       // Debug.Log("Raycast Firing");
-                        if (hit.collider.tag == "Wolf")
+                    // Debug.Log("Raycast Firing");
+                    if (hit.collider.tag == "Wolf")
                          {
                        // Debug.Log("Raycast Found wolf");
                             if (hit.transform.gameObject.GetComponent<Wolfsbane>().upgraded == false)
                          {
+                            placingTower = false;
                             hit.transform.gameObject.GetComponent<Wolfsbane>().upgrade();
                             plantFood -= 10;
                             towerSelected = 0;
@@ -199,8 +241,9 @@ public class PlayerScript : MonoBehaviour
                             //Debug.Log("FoundLion");
                             if (hit.transform.gameObject.GetComponent<Dandelion>().upgraded == false)
                             {
-                                //Debug.Log("LionUpgrading");
-                                hit.transform.gameObject.GetComponent<Dandelion>().upgrade();
+                            placingTower = false;
+                            //Debug.Log("LionUpgrading");
+                            hit.transform.gameObject.GetComponent<Dandelion>().upgrade();
                                 plantFood -= 10;
                                 towerSelected = 0;
                             }
@@ -210,8 +253,9 @@ public class PlayerScript : MonoBehaviour
                             //Debug.Log("FoundLion");
                             if (hit.transform.gameObject.GetComponent<SpiderLily>().upgraded == false)
                             {
-                                //Debug.Log("LionUpgrading");
-                                hit.transform.gameObject.GetComponent<SpiderLily>().upgrade();
+                            placingTower = false;
+                            //Debug.Log("LionUpgrading");
+                            hit.transform.gameObject.GetComponent<SpiderLily>().upgrade();
                                 plantFood -= 10;
                                 towerSelected = 0;
                             }
@@ -221,6 +265,7 @@ public class PlayerScript : MonoBehaviour
                         //Debug.Log("FoundLion");
                             if (hit.transform.gameObject.GetComponent<Dragonfruit>().upgraded == false)
                             {
+                            placingTower = false;
                             //Debug.Log("LionUpgrading");
                             hit.transform.gameObject.GetComponent<Dragonfruit>().upgrade();
                             plantFood -= 10;
@@ -233,6 +278,7 @@ public class PlayerScript : MonoBehaviour
 
                     }
                 // }
+                placingTower = false;
                 towerSelected = 0;
             }
               
@@ -249,6 +295,7 @@ public class PlayerScript : MonoBehaviour
 
         if (context.performed)
         {
+            placingTower = false;
             towerSelected = 0;
             //Debug.Log("RightClicked");
         }

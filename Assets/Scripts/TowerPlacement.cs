@@ -1,3 +1,4 @@
+using Microsoft.Unity.VisualStudio.Editor;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -35,6 +36,7 @@ public class TowerPlacement : MonoBehaviour
 
     private void OnMouseDown()
     {
+
         GetComponent<SpriteRenderer>().sprite = clickedSprite;
         colorChanged = true;
         playerScript.towerSelected = TowerType;
