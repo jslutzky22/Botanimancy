@@ -7,32 +7,43 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private Vector2 enemySpawnPosition;
 
+    [Header ("Wave One Part One")]
     [SerializeField] private float timeBeforeFirstWaveSpawns;
     [SerializeField] private int amountOfEnemiesInFirstPartOfWave;
     [SerializeField] private float timeBetweenEachEnemySpawnOne;
     [SerializeField] private GameObject firstEnemySpawned;
     [SerializeField] private float timeBeforeNextEnemiesSpawnOne;
+    
+    [Header("Wave One Part Two")]
     [SerializeField] private int amountOfEnemiesInSecondPartOfWave;
     [SerializeField] private float timeBetweenEachEnemySpawnTwo;
     [SerializeField] private GameObject secondEnemySpawned;
     [SerializeField] private float timeBeforeNextEnemiesSpawnTwo;
+
+    [Header("Wave One Part Three")]
     [SerializeField] private int amountOfEnemiesInThirdPartOfWave;
     [SerializeField] private float timeBetweenEachEnemySpawnThree;
     [SerializeField] private GameObject thirdEnemySpawned;
 
+    [Header("Wave Two Part One")]
     [SerializeField] private float timeBeforeSecondWaveSpawns;
     [SerializeField] private int amountOfEnemiesInFirstPartOfSecondWave;
     [SerializeField] private float timeBetweenEachEnemySpawnFour;
     [SerializeField] private GameObject fourthEnemySpawned;
     [SerializeField] private float timeBeforeNextEnemiesSpawnThree;
+    
+    [Header("Wave Two Part Two")]
     [SerializeField] private int amountOfEnemiesInSecondPartOfSecondWave;
     [SerializeField] private float timeBetweenEachEnemySpawnFive;
     [SerializeField] private GameObject fifthEnemySpawned;
     [SerializeField] private float timeBeforeNextEnemiesSpawnFour;
+
+    [Header("Wave Two Part Three")]
     [SerializeField] private int amountOfEnemiesInThirdPartOfSecondWave;
     [SerializeField] private float timeBetweenEachEnemySpawnSix;
     [SerializeField] private GameObject sixthEnemySpawned;
 
+    [Header("Other")]
     public int enemiesAlive;
 
     private int wavesSent;
