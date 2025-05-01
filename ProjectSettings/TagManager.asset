@@ -33,6 +33,9 @@ TagManager:
   - Spider
   - Dragon
   - Fireball
+  - movementPoint14
+  - movementPoint15
+  - movementPoint16
   layers:
   - Default
   - TransparentFX

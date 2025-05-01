@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20a8a0cdeb9cd694299f6a8c6de2c417, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 10
+  enemyHealth: 200
   enemySpeed: 1
   playerScript: {fileID: 0}
   enemySpawner: {fileID: 0}

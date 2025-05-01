@@ -204,6 +204,7 @@ MonoBehaviour:
   upgradeMultiplier: 2
   upgraded: 0
   upgradeSound: {fileID: 8300000, guid: 26a09d5ac58764046b0b1da7949967cc, type: 3}
+  slowCooldown: 5
 --- !u!82 &-4523670288328753179
 AudioSource:
   m_ObjectHideFlags: 0
