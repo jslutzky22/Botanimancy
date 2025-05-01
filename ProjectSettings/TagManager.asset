@@ -23,6 +23,12 @@ TagManager:
   - movementPoint12
   - movementPoint13
   - Dead
+  - movementPoint14
+  - movementPoint15
+  - movementPoint16
+  - movementPoint17
+  - movementPoint18
+  - movementPoint19
   - Obstacle
   - Spider
   layers:
