@@ -156,7 +156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -3.6}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4830119
@@ -181,8 +181,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Begin Wave
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 37432c872e0dcf44f936f8e59957384b, type: 2}
-  m_sharedMaterial: {fileID: -8261335539071417820, guid: 37432c872e0dcf44f936f8e59957384b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1569,8 +1569,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Back to Menu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 37432c872e0dcf44f936f8e59957384b, type: 2}
-  m_sharedMaterial: {fileID: -8261335539071417820, guid: 37432c872e0dcf44f936f8e59957384b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5054,7 +5054,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 161}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &529584092
 MonoBehaviour:
@@ -5144,8 +5144,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: cf10eb51811112c439bee4c35b27d9c2, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -6994,8 +6994,6 @@ MonoBehaviour:
   TowerType: 5
   normalSprite: {fileID: 21300000, guid: a035f26adb615fe4fa31c7cca46334a8, type: 3}
   clickedSprite: {fileID: 21300000, guid: be88c8945b6879f4d80af3351c374ecf, type: 3}
-  descriptionBackground: {fileID: 0}
-  descriptionText: {fileID: 0}
 --- !u!212 &891191295
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7745,8 +7743,6 @@ MonoBehaviour:
   TowerType: 3
   normalSprite: {fileID: 21300000, guid: 2c2f203015ce5644fb2c5f81f42a970a, type: 3}
   clickedSprite: {fileID: 21300000, guid: 478faec9ede11ed4b89ada0703e5cc6e, type: 3}
-  descriptionBackground: {fileID: 0}
-  descriptionText: {fileID: 0}
 --- !u!61 &1030795284
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8467,8 +8463,6 @@ MonoBehaviour:
   TowerType: 4
   normalSprite: {fileID: 21300000, guid: 8045fefd4b70b864981fe249af85345d, type: 3}
   clickedSprite: {fileID: 21300000, guid: d2444b27dde97fe41a59558637fc1eb1, type: 3}
-  descriptionBackground: {fileID: 0}
-  descriptionText: {fileID: 0}
 --- !u!61 &1111383067
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14206,8 +14200,6 @@ MonoBehaviour:
   TowerType: 2
   normalSprite: {fileID: 21300000, guid: 96b01f54c3c9a0848a1dada3e115057f, type: 3}
   clickedSprite: {fileID: 21300000, guid: 0f2ca45e25ac44f4ca0e88041cbc62ca, type: 3}
-  descriptionBackground: {fileID: 0}
-  descriptionText: {fileID: 0}
 --- !u!61 &1679095103
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14527,7 +14519,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 307, y: 199}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1733535063
 MonoBehaviour:
@@ -14605,8 +14597,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: cf10eb51811112c439bee4c35b27d9c2, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -16963,8 +16955,6 @@ MonoBehaviour:
   TowerType: 1
   normalSprite: {fileID: 21300000, guid: 7dd9e304aab71f54ba26881bba6ced5e, type: 3}
   clickedSprite: {fileID: 21300000, guid: b223e0a3c7a88b64b9d191427aaa91f8, type: 3}
-  descriptionBackground: {fileID: 0}
-  descriptionText: {fileID: 0}
 --- !u!61 &2070165817
 BoxCollider2D:
   m_ObjectHideFlags: 0
