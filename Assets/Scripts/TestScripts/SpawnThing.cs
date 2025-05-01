@@ -16,19 +16,28 @@ public class SpawnThing : MonoBehaviour
     public bool upgradeSuccess;
     public int towerType;
     private GameObject latestSpawnedWolf;
+    public bool isDragon;
 
     void Start()
     {
-        lr = GetComponent<LineRenderer>();
-        location = transform.position;
-        
-        GameObject wolf = Instantiate(wolfsbanePrefab, gameObject.transform.position, Quaternion.identity);
-        lrPoints.Add(transform);
-        lrPoints.Add(wolf.transform);
+        if (isDragon == false)
+        {
+            lr = GetComponent<LineRenderer>();
+            location = transform.position;
 
-        BaseCreature creature = wolf.GetComponent<BaseCreature>();
-        creature.Place(transform.position);
-        latestSpawnedWolf = wolf;
+            GameObject wolf = Instantiate(wolfsbanePrefab, gameObject.transform.position, Quaternion.identity);
+            lrPoints.Add(transform);
+            lrPoints.Add(wolf.transform);
+
+            BaseCreature creature = wolf.GetComponent<BaseCreature>();
+            creature.Place(transform.position);
+            latestSpawnedWolf = wolf;
+        }
+        else
+        {
+            GameObject wolf = Instantiate(wolfsbanePrefab, gameObject.transform.position, Quaternion.identity);
+        }
+       
 
         //SetUpLine;
 
@@ -48,15 +57,18 @@ public class SpawnThing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        for (int i = 0; i < lrPoints.Count; i++)
+        if (isDragon == false)
         {
-            lr.SetPosition(i, lrPoints[i].position);
-        }
-        if (towerType == 1 && latestSpawnedWolf.GetComponent<Wolfsbane>().upgraded == true && upgradeSuccess == false)
-        {
-            Debug.Log("TowerUpgraded");
-            upgradeSuccess = true;
-            GameObject wolf2 = Instantiate(secondWolfsbanetower, gameObject.transform.position, Quaternion.identity);
+            for (int i = 0; i < lrPoints.Count; i++)
+            {
+                lr.SetPosition(i, lrPoints[i].position);
+            }
+            if (towerType == 1 && latestSpawnedWolf.GetComponent<Wolfsbane>().upgraded == true && upgradeSuccess == false)
+            {
+                Debug.Log("TowerUpgraded");
+                upgradeSuccess = true;
+                GameObject wolf2 = Instantiate(secondWolfsbanetower, gameObject.transform.position, Quaternion.identity);
+            }
         }
     }
 }

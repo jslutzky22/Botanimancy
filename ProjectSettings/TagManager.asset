@@ -31,6 +31,8 @@ TagManager:
   - movementPoint19
   - Obstacle
   - Spider
+  - Dragon
+  - Fireball
   - movementPoint14
   - movementPoint15
   - movementPoint16
