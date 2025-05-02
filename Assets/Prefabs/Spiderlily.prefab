@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 244827165367951575}
   - component: {fileID: 5844727331033806389}
   - component: {fileID: 6550951865410155089}
+  - component: {fileID: 8618826769192029581}
   m_Layer: 0
   m_Name: Spiderlily
   m_TagString: Untagged
@@ -31,7 +32,8 @@ Transform:
   m_LocalPosition: {x: -1.616278, y: 2.2287514, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7417344165178077744}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &244827165367951575
@@ -125,10 +127,91 @@ MonoBehaviour:
   attackRange: 3
   isPlaced: 0
   projectilePrefab: {fileID: 7891502068269343001, guid: 39cc82b3ca2d9ec4382e23bed5d52e87, type: 3}
-  projectileSpeed: 5
-  slowDuration: 2
-  slowAmount: 0.5
+  shootPoint: {fileID: 7417344165178077744}
   meleeDamage: 5
   rangedDamage: 5
-  attackCooldown: 1.5
+  bulletSpeed: 5
+  distanceToShoot: 5
+  shotDelay: 1.5
+  slowDuration: 2
+  slowAmount: 0.5
   upgraded: 0
+  miniSpiderPrefab: {fileID: 5533252137404523819, guid: a1cd42eb915a6e54cbdbc816885c6b47, type: 3}
+  miniSpiderCount: 3
+  miniSpiderLifetime: 5
+--- !u!61 &8618826769192029581
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3506257103307811714}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!1 &5927339047635763376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7417344165178077744}
+  m_Layer: 0
+  m_Name: Shootpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7417344165178077744
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5927339047635763376}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.088, y: 0.006, z: -0.004010256}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6277778566971790135}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
