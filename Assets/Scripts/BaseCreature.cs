@@ -93,6 +93,7 @@ public abstract class BaseCreature : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
 
+
         // Optional: Draw line to leash point
         if (isPlaced)
         {
