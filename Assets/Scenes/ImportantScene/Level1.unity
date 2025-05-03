@@ -14481,7 +14481,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1810270563
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17417,7 +17417,7 @@ PrefabInstance:
       objectReference: {fileID: 4626066217335212253, guid: d2cfdefccfa2ca643b984e4a8baa539c, type: 3}
     - target: {fileID: 8688468093271666270, guid: 2a172c3d160585746822996fdf3a1a0b, type: 3}
       propertyPath: plantFood
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8688468093271666270, guid: 2a172c3d160585746822996fdf3a1a0b, type: 3}
       propertyPath: TowerThree
@@ -17434,7 +17434,7 @@ PrefabInstance:
     - target: {fileID: 8688468093271666270, guid: 2a172c3d160585746822996fdf3a1a0b, type: 3}
       propertyPath: notPlacableText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 531264798}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
