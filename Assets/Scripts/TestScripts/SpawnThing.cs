@@ -70,10 +70,10 @@ public class SpawnThing : MonoBehaviour
         {
             latestSpawnedWolf.GetComponent<SpiderLily>().upgrade();
         }
-        if (isDragon == true)
+        /*if (isDragon == true)
         {
             latestSpawnedWolf.GetComponent<Dragonfruit>().upgrade();
-        }
+        }*/
     }
 
     // Update is called once per frame
