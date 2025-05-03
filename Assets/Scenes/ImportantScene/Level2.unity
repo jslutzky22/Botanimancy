@@ -3655,30 +3655,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpawnPosition: {x: 9.5, y: -1.5}
-  timeBeforeFirstWaveSpawns: 0
-  amountOfEnemiesInFirstPartOfWave: 0
-  timeBetweenEachEnemySpawnOne: 0
-  firstEnemySpawned: {fileID: 0}
-  timeBeforeNextEnemiesSpawnOne: 0
-  amountOfEnemiesInSecondPartOfWave: 0
-  timeBetweenEachEnemySpawnTwo: 0
-  secondEnemySpawned: {fileID: 0}
-  timeBeforeNextEnemiesSpawnTwo: 0
-  amountOfEnemiesInThirdPartOfWave: 0
-  timeBetweenEachEnemySpawnThree: 0
-  thirdEnemySpawned: {fileID: 0}
-  timeBeforeSecondWaveSpawns: 0
-  amountOfEnemiesInFirstPartOfSecondWave: 0
-  timeBetweenEachEnemySpawnFour: 0
-  fourthEnemySpawned: {fileID: 0}
-  timeBeforeNextEnemiesSpawnThree: 0
-  amountOfEnemiesInSecondPartOfSecondWave: 0
-  timeBetweenEachEnemySpawnFive: 0
-  fifthEnemySpawned: {fileID: 0}
-  timeBeforeNextEnemiesSpawnFour: 0
-  amountOfEnemiesInThirdPartOfSecondWave: 0
-  timeBetweenEachEnemySpawnSix: 0
-  sixthEnemySpawned: {fileID: 0}
+  timeBeforeFirstWaveSpawns: 0.5
+  amountOfEnemiesInFirstPartOfWave: 2
+  timeBetweenEachEnemySpawnOne: 2
+  firstEnemySpawned: {fileID: 4100227788085772803, guid: 48d798e23e8687b40ac88cf93fd83b26, type: 3}
+  timeBeforeNextEnemiesSpawnOne: 0.5
+  amountOfEnemiesInSecondPartOfWave: 3
+  timeBetweenEachEnemySpawnTwo: 0.5
+  secondEnemySpawned: {fileID: 1437771358737266265, guid: d9a96c3da85db1a4796123721ab21e25, type: 3}
+  timeBeforeNextEnemiesSpawnTwo: 1
+  amountOfEnemiesInThirdPartOfWave: 3
+  timeBetweenEachEnemySpawnThree: 1
+  thirdEnemySpawned: {fileID: 1370577469763459484, guid: dbcc835895075a24cbaf08b5da34923f, type: 3}
+  timeBeforeSecondWaveSpawns: 5
+  amountOfEnemiesInFirstPartOfSecondWave: 4
+  timeBetweenEachEnemySpawnFour: 0.5
+  fourthEnemySpawned: {fileID: 1437771358737266265, guid: d9a96c3da85db1a4796123721ab21e25, type: 3}
+  timeBeforeNextEnemiesSpawnThree: 0.5
+  amountOfEnemiesInSecondPartOfSecondWave: 3
+  timeBetweenEachEnemySpawnFive: 0.5
+  fifthEnemySpawned: {fileID: 4100227788085772803, guid: 48d798e23e8687b40ac88cf93fd83b26, type: 3}
+  timeBeforeNextEnemiesSpawnFour: 1
+  amountOfEnemiesInThirdPartOfSecondWave: 4
+  timeBetweenEachEnemySpawnSix: 1
+  sixthEnemySpawned: {fileID: 1370577469763459484, guid: dbcc835895075a24cbaf08b5da34923f, type: 3}
   enemiesAlive: 15
   waveStart: {fileID: 8300000, guid: 3b58b24fe047ae343b335311da034214, type: 3}
   waveComplete: {fileID: 8300000, guid: 17625b966c4884d4cb855ed6acf7ebba, type: 3}

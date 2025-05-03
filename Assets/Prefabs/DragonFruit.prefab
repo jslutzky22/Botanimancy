@@ -359,7 +359,7 @@ MonoBehaviour:
   bulletPos: {fileID: 5017593088041271155}
   bulletPos2: {fileID: 470451724819882608}
   bulletPos3: {fileID: 407912081636813091}
-  bulletSpeed: 4
+  bulletSpeed: 5.5
   distanceToShoot: 10
   upgraded: 0
   upgradeSound: {fileID: 8300000, guid: 26a09d5ac58764046b0b1da7949967cc, type: 3}
