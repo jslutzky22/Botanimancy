@@ -27,10 +27,12 @@ public class SpiderLily : BaseCreature
 
 
     private GameObject closestEnemy;
+    Animator m_Animator;
 
     private void Start()
     {
         StartCoroutine(ShootLoop());
+        m_Animator = gameObject.GetComponent<Animator>();
     }
 
     private IEnumerator ShootLoop()
@@ -121,7 +123,7 @@ public class SpiderLily : BaseCreature
     protected override IEnumerator Attack(GameObject target)
     {
         isAttacking = true;
-
+        m_Animator.SetTrigger("attack");
         if (target != null)
         {
             EnemyController ec = target.GetComponent<EnemyController>();
