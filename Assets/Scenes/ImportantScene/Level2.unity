@@ -3659,11 +3659,11 @@ MonoBehaviour:
   amountOfEnemiesInFirstPartOfWave: 4
   timeBetweenEachEnemySpawnOne: 0.5
   firstEnemySpawned: {fileID: 1437771358737266265, guid: d9a96c3da85db1a4796123721ab21e25, type: 3}
-  timeBeforeNextEnemiesSpawnOne: 0
+  timeBeforeNextEnemiesSpawnOne: 3
   amountOfEnemiesInSecondPartOfWave: 3
   timeBetweenEachEnemySpawnTwo: 1
   secondEnemySpawned: {fileID: 1370577469763459484, guid: dbcc835895075a24cbaf08b5da34923f, type: 3}
-  timeBeforeNextEnemiesSpawnTwo: 0
+  timeBeforeNextEnemiesSpawnTwo: 2
   amountOfEnemiesInThirdPartOfWave: 3
   timeBetweenEachEnemySpawnThree: 2
   thirdEnemySpawned: {fileID: 4100227788085772803, guid: 48d798e23e8687b40ac88cf93fd83b26, type: 3}

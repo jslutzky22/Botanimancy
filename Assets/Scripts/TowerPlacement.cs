@@ -55,35 +55,35 @@ public class TowerPlacement : MonoBehaviour
             playerScript.mouseIndicator.GetComponent<SpriteRenderer>().sprite = playerScript.towerOneSprite;
             playerScript.mouseIndicator.SetActive(true);
             descriptionBackground.SetActive(true);
-            descriptionText.text = "Wolfsbane Tower: put desc. here";
+            descriptionText.text = "Attacks fast with medium damage.\r\nUpgrade: Summons wolf pup that has greater range but deals less damage.";
         }
         else if (TowerType == 2)
         {
             playerScript.mouseIndicator.GetComponent<SpriteRenderer>().sprite = playerScript.towerTwoSprite;
             playerScript.mouseIndicator.SetActive(true);
             descriptionBackground.SetActive(true);
-            descriptionText.text = "Dandelion Tower: put desc. here";
+            descriptionText.text = "Attacks slow but hits hard.\r\nUpgrade: Increases in size and deals double damage.";
         }
         else if (TowerType == 3)
         {
             playerScript.mouseIndicator.GetComponent<SpriteRenderer>().sprite = playerScript.towerThreeSprite;
             playerScript.mouseIndicator.SetActive(true);
             descriptionBackground.SetActive(true);
-            descriptionText.text = "Spiderlily Tower: put desc. here";
+            descriptionText.text = "Fires webs that slow enemies down and attacks enemies up close.\r\nUpgrade: Whenever spider kills an enemy, it spawns a mini spider with greater range but deals less damage";
         }
         else if (TowerType == 4)
         {
             playerScript.mouseIndicator.GetComponent<SpriteRenderer>().sprite = playerScript.towerFourSprite;
             playerScript.mouseIndicator.SetActive(true);
             descriptionBackground.SetActive(true);
-            descriptionText.text = "Dragonfruit Tower: put desc. here";
+            descriptionText.text = "Casts slow-moving fireballs at a distance.\r\nUpgrade: Grows two more heads and increases damage.";
         }
         else if (TowerType == 5)
         {
             playerScript.mouseIndicator.GetComponent<SpriteRenderer>().sprite = playerScript.towerFiveSprite;
             playerScript.mouseIndicator.SetActive(true);
             descriptionBackground.SetActive(true);
-            descriptionText.text = "Upgrade Towers: put desc. here";
+            descriptionText.text = "Gives plantimals nutrients and unlocks boons unique to each creature.";
         }
     }
 }
