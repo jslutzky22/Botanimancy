@@ -3037,7 +3037,7 @@ MonoBehaviour:
   amountOfEnemiesInSecondPartOfSecondWave: 3
   timeBetweenEachEnemySpawnFive: 1
   fifthEnemySpawned: {fileID: 1370577469763459484, guid: dbcc835895075a24cbaf08b5da34923f, type: 3}
-  timeBeforeNextEnemiesSpawnFour: 2.75
+  timeBeforeNextEnemiesSpawnFour: 3
   amountOfEnemiesInThirdPartOfSecondWave: 4
   timeBetweenEachEnemySpawnSix: 1
   sixthEnemySpawned: {fileID: 1437771358737266265, guid: d9a96c3da85db1a4796123721ab21e25, type: 3}
