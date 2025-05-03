@@ -157,7 +157,7 @@ public class EnemySpawner : MonoBehaviour
         }
         if (enemiesAlive <= 0 && wavesSent == 6)
         {
-            Debug.Log("Enemies all dead");
+            //Debug.Log("Enemies all dead");
             SceneManager.LoadScene("WinScene");
         }
 

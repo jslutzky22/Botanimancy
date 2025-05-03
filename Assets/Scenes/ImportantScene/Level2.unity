@@ -3679,7 +3679,7 @@ MonoBehaviour:
   amountOfEnemiesInThirdPartOfSecondWave: 5
   timeBetweenEachEnemySpawnSix: 1
   sixthEnemySpawned: {fileID: 1370577469763459484, guid: dbcc835895075a24cbaf08b5da34923f, type: 3}
-  enemiesAlive: 15
+  enemiesAlive: 0
   waveStart: {fileID: 8300000, guid: 3b58b24fe047ae343b335311da034214, type: 3}
   waveComplete: {fileID: 8300000, guid: 17625b966c4884d4cb855ed6acf7ebba, type: 3}
 --- !u!114 &333132575
@@ -18048,7 +18048,7 @@ PrefabInstance:
       objectReference: {fileID: 4626066217335212253, guid: d2cfdefccfa2ca643b984e4a8baa539c, type: 3}
     - target: {fileID: 8688468093271666270, guid: 2a172c3d160585746822996fdf3a1a0b, type: 3}
       propertyPath: plantFood
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8688468093271666270, guid: 2a172c3d160585746822996fdf3a1a0b, type: 3}
       propertyPath: TowerThree
