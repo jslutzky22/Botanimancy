@@ -17,6 +17,9 @@ public class SpawnThing : MonoBehaviour
     public int towerType;
     private GameObject latestSpawnedWolf;
     public bool isDragon;
+    public bool isWolf;
+    public bool isLion;
+    public bool isSpider;
 
     void Start()
     {
@@ -53,6 +56,25 @@ public class SpawnThing : MonoBehaviour
         lr.positionCount = points.Count;
         this.lrPoints.AddRange(points);
     }
+    public void forceUpgrade()
+    {
+        if (isWolf == true)
+        {
+            latestSpawnedWolf.GetComponent<Wolfsbane>().upgrade();
+        }
+        if (isLion == true)
+        {
+            latestSpawnedWolf.GetComponent<Dandelion>().upgrade();
+        }
+        if (isSpider == true)
+        {
+            latestSpawnedWolf.GetComponent<SpiderLily>().upgrade();
+        }
+        if (isDragon == true)
+        {
+            latestSpawnedWolf.GetComponent<Dragonfruit>().upgrade();
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -65,7 +87,7 @@ public class SpawnThing : MonoBehaviour
             }
             if (towerType == 1 && latestSpawnedWolf.GetComponent<Wolfsbane>().upgraded == true && upgradeSuccess == false)
             {
-                Debug.Log("TowerUpgraded");
+                //Debug.Log("TowerUpgraded");
                 upgradeSuccess = true;
                 GameObject wolf2 = Instantiate(secondWolfsbanetower, gameObject.transform.position, Quaternion.identity);
             }

@@ -335,8 +335,9 @@ public class EnemyController : MonoBehaviour
             isDead = true;
             StopAllCoroutines();
             playerScript.plantFood++;
+            playerScript.plantFood++;
             enemySpawner.enemiesAlive--;
-            Debug.Log("DestroyEnemy");
+            //Debug.Log("DestroyEnemy");
             m_Animator.SetBool("Dead", true);
             gameObject.tag = ("Dead");
             //Destroy(this.gameObject);
@@ -357,7 +358,7 @@ public class EnemyController : MonoBehaviour
 
     public void perish()
     {
-        Debug.Log("Perished");
+        //Debug.Log("Perished");
         Destroy(this.gameObject);
     }
 
