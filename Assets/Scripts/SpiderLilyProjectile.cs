@@ -2,41 +2,43 @@ using UnityEngine;
 
 public class SpiderLilyProjectile : MonoBehaviour
 {
-    private Transform target;
-    private float speed;
     private int damage;
     private float slowDuration;
     private float slowAmount;
+    public SpiderLily owner;
 
-    public void Init(Transform _target, float _speed, int _damage, float _slowDuration, float _slowAmount)
+    public void SetSlowEffect(int _damage, float _duration, float _amount)
     {
-        target = _target;
-        speed = _speed;
         damage = _damage;
-        slowDuration = _slowDuration;
-        slowAmount = _slowAmount;
+        slowDuration = _duration;
+        slowAmount = _amount;
     }
 
-    void Update()
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (target == null)
+        if (collision.CompareTag("Enemy"))
         {
-            Destroy(gameObject);
-            return;
-        }
-
-        transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-
-        if (Vector3.Distance(transform.position, target.position) < 0.1f)
-        {
-            EnemyController ec = target.GetComponent<EnemyController>();
+            EnemyController ec = collision.GetComponent<EnemyController>();
             if (ec != null)
             {
+                bool willDie = ec.enemyHealth <= damage;
                 ec.TakeDamage(damage);
+
+                if (willDie && owner != null && owner.upgraded)
+                {
+                    owner.SpawnMiniSpiders(transform.position);
+                }
+
                 ec.StartCoroutine(ec.ApplySlow(slowAmount, slowDuration));
             }
 
             Destroy(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        Destroy(gameObject, 5f); // safety delete
     }
 }

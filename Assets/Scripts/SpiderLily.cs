@@ -1,52 +1,143 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class SpiderLily : BaseCreature
 {
     public GameObject projectilePrefab;
-    public float projectileSpeed = 5f;
-    public float slowDuration = 2f;
-    public float slowAmount = 0.5f;
+    public Transform shootPoint;
+
+    [Header("Combat Stats")]
     public int meleeDamage = 10;
     public int rangedDamage = 5;
-    public float attackCooldown = 1.5f;
+    public float bulletSpeed = 5f;
+    public float distanceToShoot = 5f;
+    public float shotDelay = 1.5f;
+
+    [Header("Slow Effect")]
+    public float slowDuration = 2f;
+    public float slowAmount = 0.5f;
+
+    [Header("Upgrade")]
     public bool upgraded = false;
+
+    [Header("Mini Spider Spawn")]
+    public GameObject miniSpiderPrefab;
+    [SerializeField] private int miniSpiderCount = 3;
+    public float miniSpiderLifetime = 5f;
+
+
+    private GameObject closestEnemy;
+
+    private void Start()
+    {
+        StartCoroutine(ShootLoop());
+    }
+
+    private IEnumerator ShootLoop()
+    {
+        while (true)
+        {
+            Shoot();
+            yield return new WaitForSeconds(shotDelay);
+        }
+    }
+
+    private void Shoot()
+    {
+        FindClosestEnemy();
+
+        if (closestEnemy == null)
+            return;
+
+        float distance = Vector2.Distance(transform.position, closestEnemy.transform.position);
+
+        if (distance <= attackRange)
+            return;
+
+        if (distance > distanceToShoot)
+            return;
+
+        FireProjectile(shootPoint);
+    }
+
+    private void FireProjectile(Transform point)
+    {
+        if (projectilePrefab == null || point == null)
+            return;
+
+        GameObject bullet = Instantiate(projectilePrefab, point.position, Quaternion.identity);
+        Vector2 direction = (closestEnemy.transform.position - point.position).normalized;
+
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.velocity = direction * bulletSpeed;
+        }
+
+        SpiderLilyProjectile slp = bullet.GetComponent<SpiderLilyProjectile>();
+        if (slp != null)
+        {
+            slp.SetSlowEffect(rangedDamage, slowDuration, slowAmount);
+            slp.owner = this;
+        }
+    }
+
+    private void FindClosestEnemy()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        float closestDistance = Mathf.Infinity;
+        closestEnemy = null;
+
+        foreach (GameObject enemy in enemies)
+        {
+            float distance = Vector2.Distance(transform.position, enemy.transform.position);
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                closestEnemy = enemy;
+            }
+        }
+    }
+
+    public void upgrade()
+    {
+        if (!upgraded)
+        {
+            transform.localScale = Vector3.one * 2;
+            upgraded = true;
+        }
+    }
+    public void SpawnMiniSpiders(Vector3 position)
+    {
+        for (int i = 0; i < miniSpiderCount; i++)
+        {
+            Vector3 offset = new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0f);
+            GameObject spider = Instantiate(miniSpiderPrefab, position + offset, Quaternion.identity);
+            Destroy(spider, miniSpiderLifetime);
+        }
+    }
+
 
     protected override IEnumerator Attack(GameObject target)
     {
         isAttacking = true;
 
-        if (Vector3.Distance(transform.position, target.transform.position) <= attackRange)
+        if (target != null)
         {
-            // Melee Attack
             EnemyController ec = target.GetComponent<EnemyController>();
             if (ec != null)
             {
+                bool willDie = ec.enemyHealth <= meleeDamage;
                 ec.TakeDamage(meleeDamage);
-            }
-        }
-        else
-        {
-            // Ranged Attack
-            GameObject proj = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-            SpiderLilyProjectile p = proj.GetComponent<SpiderLilyProjectile>();
-            if (p != null)
-            {
-                p.Init(target.transform, projectileSpeed, rangedDamage, slowDuration, slowAmount);
+
+                if (willDie && upgraded)
+                {
+                    SpawnMiniSpiders(target.transform.position);
+                }
             }
         }
 
-        yield return new WaitForSeconds(attackCooldown);
+        yield return new WaitForSeconds(1f); // Cooldown before another attack
         isAttacking = false;
-    }
-
-    public void upgrade()
-    {
-        if (upgraded == false)
-        {
-            gameObject.transform.localScale = Vector3.one * 2;
-            upgraded = true;
-        }
-
     }
 }

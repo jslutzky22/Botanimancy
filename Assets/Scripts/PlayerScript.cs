@@ -14,7 +14,7 @@ public class PlayerScript : MonoBehaviour
     private GameObject selectedTile;
     public int plantFood;
     [SerializeField] private TMP_Text plantFoodText;
-
+    public GameObject notPlacableText;
     [SerializeField] private GameObject TowerOne;
     [SerializeField] private GameObject TowerTwo;
     [SerializeField] private GameObject TowerThree;
@@ -101,6 +101,11 @@ public class PlayerScript : MonoBehaviour
                         plantFood -= 5;
                         Instantiate(TowerOne, cursorPos, Quaternion.identity);
                     }
+                else
+                {
+                    StartCoroutine(notPlacable());
+                    //Debug.Log("NotPlaceable1");
+                }
                    
                     //}
                 //Debug.Log(hit.collider.tag);
@@ -124,6 +129,11 @@ public class PlayerScript : MonoBehaviour
                     plantFood -= 5;
                     Instantiate(TowerTwo, cursorPos, Quaternion.identity);
                 }
+                else
+                {
+                    StartCoroutine(notPlacable());
+                    //Debug.Log("NotPlaceable1");
+                }
                 towerSelected = 0;
             }
             if (towerSelected == 3 && plantFood >= 5)
@@ -137,6 +147,11 @@ public class PlayerScript : MonoBehaviour
                     plantFood -= 5;
                     Instantiate(TowerThree, cursorPos, Quaternion.identity);
                 }
+                else
+                {
+                    StartCoroutine(notPlacable());
+                    //Debug.Log("NotPlaceable1");
+                }
                 towerSelected = 0;
             }
             if (towerSelected == 4 && plantFood >= 5)
@@ -149,6 +164,11 @@ public class PlayerScript : MonoBehaviour
                 {
                     plantFood -= 5;
                     Instantiate(TowerFour, cursorPos, Quaternion.identity);
+                }
+                else
+                {
+                    StartCoroutine(notPlacable());
+                    //Debug.Log("NotPlaceable1");
                 }
                 towerSelected = 0;
             }
@@ -239,6 +259,15 @@ public class PlayerScript : MonoBehaviour
         if (context.performed)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+    }
+    private IEnumerator notPlacable()
+    {
+        {
+            //Debug.Log("NotPlacable2");
+            notPlacableText.SetActive(true);
+            yield return new WaitForSeconds(2);
+            notPlacableText.SetActive(false);
         }
     }
 }
