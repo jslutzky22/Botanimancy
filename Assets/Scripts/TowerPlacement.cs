@@ -10,7 +10,7 @@ public class TowerPlacement : MonoBehaviour
 {
     [SerializeField] private int TowerType;
     private GameObject sceneCamera;
-    private PlayerScript playerScript;
+    public PlayerScript playerScript;
     private GameObject[] greenTiles;
     private bool colorChanged = false;
     [SerializeField] private Sprite normalSprite;
@@ -28,6 +28,7 @@ public class TowerPlacement : MonoBehaviour
     {
         if (playerScript.towerSelected != TowerType && colorChanged == true)
         {
+            playerScript.mouseIndicator.SetActive(false);
             colorChanged = false;
             GetComponent<SpriteRenderer>().sprite = normalSprite;
             descriptionBackground.SetActive(false);
@@ -36,7 +37,6 @@ public class TowerPlacement : MonoBehaviour
 
     private void OnMouseDown()
     {
-
         GetComponent<SpriteRenderer>().sprite = clickedSprite;
         colorChanged = true;
         playerScript.towerSelected = TowerType;
@@ -52,26 +52,36 @@ public class TowerPlacement : MonoBehaviour
 
         if (TowerType == 1)
         {
+            playerScript.mouseIndicator.GetComponent<SpriteRenderer>().sprite = playerScript.towerOneSprite;
+            playerScript.mouseIndicator.SetActive(true);
             descriptionBackground.SetActive(true);
             descriptionText.text = "Wolfsbane Tower: put desc. here";
         }
         else if (TowerType == 2)
         {
+            playerScript.mouseIndicator.GetComponent<SpriteRenderer>().sprite = playerScript.towerTwoSprite;
+            playerScript.mouseIndicator.SetActive(true);
             descriptionBackground.SetActive(true);
             descriptionText.text = "Dandelion Tower: put desc. here";
         }
         else if (TowerType == 3)
         {
+            playerScript.mouseIndicator.GetComponent<SpriteRenderer>().sprite = playerScript.towerThreeSprite;
+            playerScript.mouseIndicator.SetActive(true);
             descriptionBackground.SetActive(true);
             descriptionText.text = "Spiderlily Tower: put desc. here";
         }
         else if (TowerType == 4)
         {
+            playerScript.mouseIndicator.GetComponent<SpriteRenderer>().sprite = playerScript.towerFourSprite;
+            playerScript.mouseIndicator.SetActive(true);
             descriptionBackground.SetActive(true);
             descriptionText.text = "Dragonfruit Tower: put desc. here";
         }
         else if (TowerType == 5)
         {
+            playerScript.mouseIndicator.GetComponent<SpriteRenderer>().sprite = playerScript.towerFiveSprite;
+            playerScript.mouseIndicator.SetActive(true);
             descriptionBackground.SetActive(true);
             descriptionText.text = "Upgrade Towers: put desc. here";
         }

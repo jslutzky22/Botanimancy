@@ -7222,6 +7222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TowerType: 5
+  playerScript: {fileID: 0}
   normalSprite: {fileID: 21300000, guid: a035f26adb615fe4fa31c7cca46334a8, type: 3}
   clickedSprite: {fileID: 21300000, guid: be88c8945b6879f4d80af3351c374ecf, type: 3}
   descriptionBackground: {fileID: 1828123160}
@@ -7973,6 +7974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TowerType: 3
+  playerScript: {fileID: 0}
   normalSprite: {fileID: 21300000, guid: 2c2f203015ce5644fb2c5f81f42a970a, type: 3}
   clickedSprite: {fileID: 21300000, guid: 478faec9ede11ed4b89ada0703e5cc6e, type: 3}
   descriptionBackground: {fileID: 1828123160}
@@ -8695,6 +8697,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TowerType: 4
+  playerScript: {fileID: 0}
   normalSprite: {fileID: 21300000, guid: 8045fefd4b70b864981fe249af85345d, type: 3}
   clickedSprite: {fileID: 21300000, guid: d2444b27dde97fe41a59558637fc1eb1, type: 3}
   descriptionBackground: {fileID: 1828123160}
@@ -13655,7 +13658,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 32767
   m_Sprite: {fileID: 0}
-  m_Color: {r: 0.19784619, g: 0.735849, b: 0.21050514, a: 0.5019608}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.6666667}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -14518,6 +14521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TowerType: 2
+  playerScript: {fileID: 0}
   normalSprite: {fileID: 21300000, guid: 96b01f54c3c9a0848a1dada3e115057f, type: 3}
   clickedSprite: {fileID: 21300000, guid: 0f2ca45e25ac44f4ca0e88041cbc62ca, type: 3}
   descriptionBackground: {fileID: 1828123160}
@@ -17351,6 +17355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TowerType: 1
+  playerScript: {fileID: 0}
   normalSprite: {fileID: 21300000, guid: 7dd9e304aab71f54ba26881bba6ced5e, type: 3}
   clickedSprite: {fileID: 21300000, guid: b223e0a3c7a88b64b9d191427aaa91f8, type: 3}
   descriptionBackground: {fileID: 1828123160}
