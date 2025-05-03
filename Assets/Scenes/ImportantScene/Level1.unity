@@ -3021,25 +3021,25 @@ MonoBehaviour:
   amountOfEnemiesInFirstPartOfWave: 3
   timeBetweenEachEnemySpawnOne: 0.5
   firstEnemySpawned: {fileID: 1437771358737266265, guid: d9a96c3da85db1a4796123721ab21e25, type: 3}
-  timeBeforeNextEnemiesSpawnOne: 5
-  amountOfEnemiesInSecondPartOfWave: 1
+  timeBeforeNextEnemiesSpawnOne: 2
+  amountOfEnemiesInSecondPartOfWave: 2
   timeBetweenEachEnemySpawnTwo: 2
   secondEnemySpawned: {fileID: 4100227788085772803, guid: 48d798e23e8687b40ac88cf93fd83b26, type: 3}
-  timeBeforeNextEnemiesSpawnTwo: 4
+  timeBeforeNextEnemiesSpawnTwo: 3
   amountOfEnemiesInThirdPartOfWave: 3
-  timeBetweenEachEnemySpawnThree: 0.5
+  timeBetweenEachEnemySpawnThree: 1
   thirdEnemySpawned: {fileID: 1370577469763459484, guid: dbcc835895075a24cbaf08b5da34923f, type: 3}
-  timeBeforeSecondWaveSpawns: 5
-  amountOfEnemiesInFirstPartOfSecondWave: 3
-  timeBetweenEachEnemySpawnFour: 0.2
-  fourthEnemySpawned: {fileID: 1370577469763459484, guid: dbcc835895075a24cbaf08b5da34923f, type: 3}
-  timeBeforeNextEnemiesSpawnThree: 0.5
-  amountOfEnemiesInSecondPartOfSecondWave: 5
-  timeBetweenEachEnemySpawnFive: 2
-  fifthEnemySpawned: {fileID: 4100227788085772803, guid: 48d798e23e8687b40ac88cf93fd83b26, type: 3}
-  timeBeforeNextEnemiesSpawnFour: 3
-  amountOfEnemiesInThirdPartOfSecondWave: 5
-  timeBetweenEachEnemySpawnSix: 0.1
+  timeBeforeSecondWaveSpawns: 3
+  amountOfEnemiesInFirstPartOfSecondWave: 2
+  timeBetweenEachEnemySpawnFour: 2
+  fourthEnemySpawned: {fileID: 4100227788085772803, guid: 48d798e23e8687b40ac88cf93fd83b26, type: 3}
+  timeBeforeNextEnemiesSpawnThree: 2.25
+  amountOfEnemiesInSecondPartOfSecondWave: 3
+  timeBetweenEachEnemySpawnFive: 1
+  fifthEnemySpawned: {fileID: 1370577469763459484, guid: dbcc835895075a24cbaf08b5da34923f, type: 3}
+  timeBeforeNextEnemiesSpawnFour: 2.75
+  amountOfEnemiesInThirdPartOfSecondWave: 4
+  timeBetweenEachEnemySpawnSix: 1
   sixthEnemySpawned: {fileID: 1437771358737266265, guid: d9a96c3da85db1a4796123721ab21e25, type: 3}
   enemiesAlive: 0
   waveStart: {fileID: 8300000, guid: 3b58b24fe047ae343b335311da034214, type: 3}
