@@ -5937,7 +5937,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 10
-  healthText: {fileID: 914642422}
+  healthText: {fileID: 0}
   damaged: {fileID: 8300000, guid: 65d52c7a8e2d97a469bdcb6ac2691add, type: 3}
 --- !u!4 &547158851
 Transform:
@@ -7044,8 +7044,8 @@ MonoBehaviour:
   playerScript: {fileID: 0}
   normalSprite: {fileID: 21300000, guid: a035f26adb615fe4fa31c7cca46334a8, type: 3}
   clickedSprite: {fileID: 21300000, guid: be88c8945b6879f4d80af3351c374ecf, type: 3}
-  descriptionBackground: {fileID: 1265788473}
-  descriptionText: {fileID: 68673253}
+  descriptionBackground: {fileID: 0}
+  descriptionText: {fileID: 0}
 --- !u!212 &891191295
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8054,8 +8054,8 @@ MonoBehaviour:
   playerScript: {fileID: 0}
   normalSprite: {fileID: 21300000, guid: 2c2f203015ce5644fb2c5f81f42a970a, type: 3}
   clickedSprite: {fileID: 21300000, guid: 478faec9ede11ed4b89ada0703e5cc6e, type: 3}
-  descriptionBackground: {fileID: 1265788473}
-  descriptionText: {fileID: 68673253}
+  descriptionBackground: {fileID: 0}
+  descriptionText: {fileID: 0}
 --- !u!61 &1030795284
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8517,8 +8517,8 @@ MonoBehaviour:
   playerScript: {fileID: 0}
   normalSprite: {fileID: 21300000, guid: 8045fefd4b70b864981fe249af85345d, type: 3}
   clickedSprite: {fileID: 21300000, guid: d2444b27dde97fe41a59558637fc1eb1, type: 3}
-  descriptionBackground: {fileID: 1265788473}
-  descriptionText: {fileID: 68673253}
+  descriptionBackground: {fileID: 0}
+  descriptionText: {fileID: 0}
 --- !u!61 &1111383067
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13962,8 +13962,8 @@ MonoBehaviour:
   playerScript: {fileID: 0}
   normalSprite: {fileID: 21300000, guid: 96b01f54c3c9a0848a1dada3e115057f, type: 3}
   clickedSprite: {fileID: 21300000, guid: 0f2ca45e25ac44f4ca0e88041cbc62ca, type: 3}
-  descriptionBackground: {fileID: 1265788473}
-  descriptionText: {fileID: 68673253}
+  descriptionBackground: {fileID: 0}
+  descriptionText: {fileID: 0}
 --- !u!61 &1679095103
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17306,8 +17306,8 @@ MonoBehaviour:
   playerScript: {fileID: 0}
   normalSprite: {fileID: 21300000, guid: 7dd9e304aab71f54ba26881bba6ced5e, type: 3}
   clickedSprite: {fileID: 21300000, guid: b223e0a3c7a88b64b9d191427aaa91f8, type: 3}
-  descriptionBackground: {fileID: 1265788473}
-  descriptionText: {fileID: 68673253}
+  descriptionBackground: {fileID: 0}
+  descriptionText: {fileID: 0}
 --- !u!61 &2070165817
 BoxCollider2D:
   m_ObjectHideFlags: 0
