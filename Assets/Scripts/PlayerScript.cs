@@ -254,11 +254,12 @@ public class PlayerScript : MonoBehaviour
                             }
                         }
                     }
-                    if (hit.transform.gameObject.GetComponent<SpawnThing>() == true)
+                    if (hit.transform.gameObject.GetComponent<SpawnThing>() == true && hit.transform.gameObject.GetComponent<Dragonfruit>() == false)
                     {
                         //Debug.Log("Detected");
-                        plantFood -= 10;
+                        
                         hit.transform.gameObject.GetComponent<SpawnThing>().forceUpgrade();
+                        plantFood -= 10;
 
                     }
                     //hit.transform.gameObject.GetComponent<Wolfsbane>().upgraded = false;

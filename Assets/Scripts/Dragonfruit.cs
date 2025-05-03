@@ -79,7 +79,7 @@ public class Dragonfruit : MonoBehaviour
             }
             if (upgraded == true)
             {
-                Debug.Log("UpgradeShoot!");
+                //Debug.Log("UpgradeShoot!");
                 if (distance < distanceToShoot)
                 {
                     GameObject firedBullet = Instantiate(bullet, bulletPos2.position, Quaternion.identity);
@@ -110,6 +110,7 @@ public class Dragonfruit : MonoBehaviour
     {
         if (upgraded == false)
         {
+            upgraded = true;
             //Debug.Log("UpgradeWorked");
             audioSource.PlayOneShot(upgradeSound, 1F);
             //BUFFER TO ACTUAL UPGRADE PART
@@ -117,7 +118,7 @@ public class Dragonfruit : MonoBehaviour
             gameObject.transform.localScale = Vector3.one * upgradeMultiplier;
             shotDelay = upgradedShotDelay;
             bulletSpeed = upgradeMultiplier * 10;
-            upgraded = true;
+           
         }
 
     }
