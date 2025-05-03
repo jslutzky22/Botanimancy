@@ -335,6 +335,7 @@ public class EnemyController : MonoBehaviour
             isDead = true;
             StopAllCoroutines();
             playerScript.plantFood++;
+            playerScript.plantFood++;
             enemySpawner.enemiesAlive--;
             Debug.Log("DestroyEnemy");
             m_Animator.SetBool("Dead", true);
