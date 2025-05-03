@@ -364,7 +364,7 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Fireball")
         {
-            TakeDamage(5);
+            TakeDamage(10);
         }
     }
 
