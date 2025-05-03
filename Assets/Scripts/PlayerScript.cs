@@ -257,6 +257,7 @@ public class PlayerScript : MonoBehaviour
                     if (hit.transform.gameObject.GetComponent<SpawnThing>() == true)
                     {
                         //Debug.Log("Detected");
+                        plantFood -= 10;
                         hit.transform.gameObject.GetComponent<SpawnThing>().forceUpgrade();
 
                     }
