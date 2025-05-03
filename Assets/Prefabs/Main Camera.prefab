@@ -109,7 +109,14 @@ MonoBehaviour:
   selectedTileTransform: {fileID: 0}
   plantFood: 0
   plantFoodText: {fileID: 0}
+  notPlacableText: {fileID: 0}
   TowerOne: {fileID: 7741374335154400959, guid: 7de9cd42ecf6ffb45b7d4166141e2298, type: 3}
   TowerTwo: {fileID: 7741374335154400959, guid: 7de9cd42ecf6ffb45b7d4166141e2298, type: 3}
   TowerThree: {fileID: 7741374335154400959, guid: 7de9cd42ecf6ffb45b7d4166141e2298, type: 3}
   TowerFour: {fileID: 7741374335154400959, guid: 7de9cd42ecf6ffb45b7d4166141e2298, type: 3}
+  mouseIndicator: {fileID: 3601806915544922827, guid: a27d6bd3535d8e147b8c05fd4d329685, type: 3}
+  towerOneSprite: {fileID: 21300000, guid: 8fd7d4cb946a6b242a20dc93e0896d86, type: 3}
+  towerTwoSprite: {fileID: 21300000, guid: 1b0bd69f4ad6ae64dbf7f1254a4197e6, type: 3}
+  towerThreeSprite: {fileID: 21300000, guid: c02b13e5df27db14e9359c76bac80248, type: 3}
+  towerFourSprite: {fileID: 21300000, guid: 6f6d64b2dda04dc4fb97f94a1ec79cdd, type: 3}
+  towerFiveSprite: {fileID: 21300000, guid: f6d59e36eea397549a242639c1cb265b, type: 3}
