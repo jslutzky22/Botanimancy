@@ -38,7 +38,7 @@ public class Wolfsbane : BaseCreature
     {
         if (upgraded == false)
         {
-            Debug.Log("UpgradeWorked");
+            //Debug.Log("UpgradeWorked");
             audioSource.PlayOneShot(upgradeSound, 1F);
             damage = damage * upgradeMultiplier;
             //attackCooldown = attackCooldown / upgradeMultiplier;

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6871030443383358302}
   - component: {fileID: 1430771830432881928}
   - component: {fileID: 4227721438059384391}
+  - component: {fileID: 3460745430110936665}
   m_Layer: 0
   m_Name: WolfTower
   m_TagString: Wolf
@@ -102,6 +103,10 @@ MonoBehaviour:
   secondWolfsbanetower: {fileID: 4626066217335212253, guid: a9f74ba50b858af42a309ee7f2acc773, type: 3}
   upgradeSuccess: 0
   towerType: 1
+  isDragon: 0
+  isWolf: 1
+  isLion: 0
+  isSpider: 0
 --- !u!120 &4227721438059384391
 LineRenderer:
   serializedVersion: 2
@@ -206,3 +211,38 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!58 &3460745430110936665
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4626066217335212253}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.009533882, y: 0.26695657}
+  serializedVersion: 2
+  m_Radius: 0.6091002

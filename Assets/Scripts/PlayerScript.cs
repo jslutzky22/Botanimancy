@@ -91,11 +91,11 @@ public class PlayerScript : MonoBehaviour
         {
             if (towerSelected == 1 && plantFood >= 5)
             {
-                Debug.Log("TowerClicked");
+                //Debug.Log("TowerClicked");
                 Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Ray rayOrigin = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit2D hit = Physics2D.Raycast(rayOrigin.origin, rayOrigin.direction);
-                Debug.Log("LeftClicked");
+                //Debug.Log("LeftClicked");
                 /*if (hit.collider.tag == "Obstacle" || hit.collider.tag == "Wolf" || hit.collider.tag == "Lion")
                 {
                     return;
@@ -191,57 +191,80 @@ public class PlayerScript : MonoBehaviour
                 Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
                 //if (Physics.Raycast(rayOrigin, out hit) )
                 //{
-                    if (hit.collider != null)
-                    {
+                if (hit.collider != null)
+                {
                     // Debug.Log("Raycast Firing");
                     if (hit.collider.tag == "Wolf")
-                         {
-                       // Debug.Log("Raycast Found wolf");
-                            if (hit.transform.gameObject.GetComponent<Wolfsbane>().upgraded == false)
-                         {
-                            hit.transform.gameObject.GetComponent<Wolfsbane>().upgrade();
-                            plantFood -= 10;
-                            towerSelected = 0;
-                         }
-                        }
-                        if (hit.collider.tag == "Lion")
+                    {
+                        // Debug.Log("Raycast Found wolf");
+                        if (hit.transform.gameObject.GetComponent<Wolfsbane>() == true)
                         {
-                            //Debug.Log("FoundLion");
+                            if (hit.transform.gameObject.GetComponent<Wolfsbane>().upgraded == false)
+                            {
+                                hit.transform.gameObject.GetComponent<Wolfsbane>().upgrade();
+                                plantFood -= 10;
+                                towerSelected = 0;
+                            }
+                        }
+
+
+                    }
+                    if (hit.collider.tag == "Lion")
+                    {
+                        //Debug.Log("FoundLion");
+                        if (hit.transform.gameObject.GetComponent<Dandelion>() == true)
+                        {
                             if (hit.transform.gameObject.GetComponent<Dandelion>().upgraded == false)
                             {
-                            //Debug.Log("LionUpgrading");
-                            hit.transform.gameObject.GetComponent<Dandelion>().upgrade();
+                                //Debug.Log("LionUpgrading");
+                                hit.transform.gameObject.GetComponent<Dandelion>().upgrade();
                                 plantFood -= 10;
                                 towerSelected = 0;
                             }
                         }
-                        if (hit.collider.tag == "Spider")
+                    }
+                    if (hit.collider.tag == "Spider")
+                    {
+                        //Debug.Log("FoundLion");
+                        if (hit.transform.gameObject.GetComponent<SpiderLily>() == true)
                         {
-                            //Debug.Log("FoundLion");
                             if (hit.transform.gameObject.GetComponent<SpiderLily>().upgraded == false)
                             {
-                            //Debug.Log("LionUpgrading");
-                            hit.transform.gameObject.GetComponent<SpiderLily>().upgrade();
+                                //Debug.Log("LionUpgrading");
+                                hit.transform.gameObject.GetComponent<SpiderLily>().upgrade();
                                 plantFood -= 10;
                                 towerSelected = 0;
                             }
                         }
-                        if (hit.collider.tag == "Dragon")
-                        {
+                    }
+
+
+
+                    if (hit.collider.tag == "Dragon")
+                    {
                         //Debug.Log("FoundLion");
+                        if (hit.transform.gameObject.GetComponent<Dragonfruit>() == true)
+                        {
                             if (hit.transform.gameObject.GetComponent<Dragonfruit>().upgraded == false)
                             {
-                            //Debug.Log("LionUpgrading");
-                            hit.transform.gameObject.GetComponent<Dragonfruit>().upgrade();
-                            plantFood -= 10;
-                            towerSelected = 0;
+                                //Debug.Log("LionUpgrading");
+                                hit.transform.gameObject.GetComponent<Dragonfruit>().upgrade();
+                                plantFood -= 10;
+                                towerSelected = 0;
                             }
                         }
+                    }
+                    if (hit.transform.gameObject.GetComponent<SpawnThing>() == true)
+                    {
+                        //Debug.Log("Detected");
+                        hit.transform.gameObject.GetComponent<SpawnThing>().forceUpgrade();
+
+                    }
                     //hit.transform.gameObject.GetComponent<Wolfsbane>().upgraded = false;
 
                     // hit.transform.gameObject.GetComponent<Wolfsbane>().upgrade();
 
-                    }
+                }
                 // }
                 towerSelected = 0;
             }

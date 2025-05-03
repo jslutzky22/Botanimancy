@@ -32,14 +32,14 @@ public class PlayerHealth : MonoBehaviour
     public void PlayerTakeDamage(int amount)
     {
         currentHealth -= amount;
-        Debug.Log("Player took damage! Health is now: " + currentHealth);
+        //Debug.Log("Player took damage! Health is now: " + currentHealth);
         healthText.text = "Health: " + currentHealth;
         //audioSource.PlayOneShot(damaged, 1F);
 
         if (currentHealth <= 0)
         {
             // Handle player death
-            Debug.Log("Player died!");
+            //Debug.Log("Player died!");
             SceneManager.LoadScene("LoseScene");
         }
     }
