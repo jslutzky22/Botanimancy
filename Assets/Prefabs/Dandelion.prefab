@@ -195,12 +195,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  speed: 2
+  speed: 3.5
   leashRange: 2
   attackRange: 1
   isPlaced: 0
-  damage: 15
-  attackCooldown: 1
+  damage: 35
+  attackCooldown: 1.5
   upgradeMultiplier: 2
   upgraded: 0
   upgradeSound: {fileID: 8300000, guid: 26a09d5ac58764046b0b1da7949967cc, type: 3}

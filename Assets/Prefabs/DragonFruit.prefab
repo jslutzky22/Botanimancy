@@ -360,11 +360,11 @@ MonoBehaviour:
   bulletPos2: {fileID: 470451724819882608}
   bulletPos3: {fileID: 407912081636813091}
   bulletSpeed: 4
-  distanceToShoot: 10
+  distanceToShoot: 12
   upgraded: 0
   upgradeSound: {fileID: 8300000, guid: 26a09d5ac58764046b0b1da7949967cc, type: 3}
   upgradeMultiplier: 1.2
-  shotDelay: 3
+  shotDelay: 2
   upgradedShotDelay: 1
 --- !u!1 &8225811585368485150
 GameObject:
