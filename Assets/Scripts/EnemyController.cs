@@ -302,6 +302,7 @@ public class EnemyController : MonoBehaviour
                 PlayerHealth.Instance.PlayerTakeDamage(1); // or whatever method you use
 
                 enemySpawner.enemiesAlive--;
+                playerScript.plantFood++;
 
                 // Destroy the enemy
                 //Debug.Log("EnemyKilledDead");
