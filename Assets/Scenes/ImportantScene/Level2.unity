@@ -3656,9 +3656,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySpawnPosition: {x: 9.5, y: -1.5}
   timeBeforeFirstWaveSpawns: 0
-  amountOfEnemiesInFirstPartOfWave: 0
+  amountOfEnemiesInFirstPartOfWave: 4
   timeBetweenEachEnemySpawnOne: 0
-  firstEnemySpawned: {fileID: 0}
+  firstEnemySpawned: {fileID: 1437771358737266265, guid: d9a96c3da85db1a4796123721ab21e25, type: 3}
   timeBeforeNextEnemiesSpawnOne: 0
   amountOfEnemiesInSecondPartOfWave: 0
   timeBetweenEachEnemySpawnTwo: 0
