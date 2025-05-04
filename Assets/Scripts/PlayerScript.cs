@@ -247,16 +247,23 @@ public class PlayerScript : MonoBehaviour
                         {
                             if (hit.transform.gameObject.GetComponent<Dragonfruit>().upgraded == false)
                             {
-                                //Debug.Log("LionUpgrading");
+                                //Debug.Log("DragonUpgrading");
                                 hit.transform.gameObject.GetComponent<Dragonfruit>().upgrade();
-                                plantFood -= 10;
+                                if (hit.transform.gameObject.GetComponent<Dragonfruit>().upgraded == true)
+                                {
+                                    //Debug.Log("LionUpgrading");
+                                    
+                                    plantFood -= 10;
+                                    towerSelected = 0;
+                                }
+                                //plantFood -= 10;
                                 towerSelected = 0;
                             }
                         }
                     }
                     if (hit.transform.gameObject.GetComponent<SpawnThing>() == true && hit.transform.gameObject.GetComponent<Dragonfruit>() == false)
                     {
-                        //Debug.Log("Detected");
+                        //Debug.Log("ForceUpgrading");
                         
                         hit.transform.gameObject.GetComponent<SpawnThing>().forceUpgrade();
                         plantFood -= 10;

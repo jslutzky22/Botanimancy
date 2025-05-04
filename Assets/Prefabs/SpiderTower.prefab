@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8880422105745045630}
   m_Layer: 0
   m_Name: SpiderTower
-  m_TagString: Wolf
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
